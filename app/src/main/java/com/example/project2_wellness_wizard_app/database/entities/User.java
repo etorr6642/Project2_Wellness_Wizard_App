@@ -1,9 +1,13 @@
 package com.example.project2_wellness_wizard_app.database.entities;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.example.project2_wellness_wizard_app.database.WellnessWizardDatabase;
 
 import java.util.Objects;
 
+@Entity(tableName = WellnessWizardDatabase.USER_TABLE)
 public class User {
 
     @PrimaryKey(autoGenerate = true)
@@ -13,8 +17,8 @@ public class User {
     private String password;
     private boolean isAdmin;
 
-    public User(String userName, String password, boolean isAdmin) {
-        this.username = userName;
+    public User(String username, String password, boolean isAdmin) {
+        this.username = username;
         this.password = password;
         this.isAdmin = isAdmin;
     }

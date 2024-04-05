@@ -1,10 +1,14 @@
 package com.example.project2_wellness_wizard_app.database.entities;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.example.project2_wellness_wizard_app.database.WellnessWizardDatabase;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity(tableName = WellnessWizardDatabase.USER_INFO_TABLE)
 public class UserInfo {
     @PrimaryKey(autoGenerate = true)
     private int userInfoID;
@@ -13,11 +17,11 @@ public class UserInfo {
     private int calories;
     private String vitMeds;
     private String timeOfDay;
-    private double water;
+    private int water;
     private double weight;
     private LocalDateTime date;
 
-    public UserInfo(String food, int calories, String vitMeds, String timeOfDay, double water, double weight) { //letting db create id
+    public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight) { //letting db create id
         this.food = food;
         this.calories = calories;
         this.vitMeds = vitMeds;
@@ -94,11 +98,11 @@ public class UserInfo {
         this.timeOfDay = timeOfDay;
     }
 
-    public double getWater() {
+    public int getWater() {
         return water;
     }
 
-    public void setWater(double water) {
+    public void setWater(int water) {
         this.water = water;
     }
 
