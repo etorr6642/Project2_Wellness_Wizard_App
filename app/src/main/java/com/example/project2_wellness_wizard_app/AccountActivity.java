@@ -25,7 +25,7 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.WellnessWizardTitleTextView.setOnClickListener(new View.OnClickListener() {
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = MainActivity.MainActivityIntentFactory((getApplicationContext()));
