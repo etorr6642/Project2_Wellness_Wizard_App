@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Project2_Wellness_Wizard_App</string>
+    <string name="wellness_wizard">Wellness Wizard</string>
+    <string name="user_menu">User Menu</string>
+    <string name="account">Account</string>
+    <string name="add_vit_med">Add Vit/Med</string>
+    <string name="view_vit_med">View Vit/Med</string>
+    <string name="get_workout">Get Workout</string>
+    <string name="track_water">Track Water</string>
+    <string name="track_food">Track Food</string>
+    <string name="track_weight">Track Weight</string>
+    <string name="logout">Logout</string>
 </resources>
