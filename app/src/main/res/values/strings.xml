@@ -10,4 +10,9 @@
     <string name="track_food">Track Food</string>
     <string name="track_weight">Track Weight</string>
     <string name="logout">Logout</string>
+    <string name="welcome_to_wellness_wizard">Welcome to Wellness Wizard!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new Account</string>
 </resources>

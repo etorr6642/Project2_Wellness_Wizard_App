@@ -1,7 +1,5 @@
 package com.example.project2_wellness_wizard_app;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,19 +8,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
-
-public class LoginActivity extends AppCompatActivity {
-
-    private ActivityLoginBinding binding;
+public class AccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(binding.getRoot());
-    }
+        setContentView(R.layout.activity_account);
 
-    static Intent loginIntentFactory(Context context){
-        return new Intent(context, LoginActivity.class);
     }
 }
