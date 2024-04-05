@@ -1,7 +1,9 @@
 package com.example.project2_wellness_wizard_app.database.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
 
 import com.example.project2_wellness_wizard_app.database.WellnessWizardDatabase;
 
@@ -31,6 +33,7 @@ public class UserInfo {
         date = LocalDateTime.now();
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -41,7 +44,7 @@ public class UserInfo {
                 ", timeOfDay='" + timeOfDay + '\'' +
                 ", water=" + water +
                 ", weight=" + weight +
-                ", date=" + date +
+                ", date=" + date.toString() +
                 '}';
     }
 
