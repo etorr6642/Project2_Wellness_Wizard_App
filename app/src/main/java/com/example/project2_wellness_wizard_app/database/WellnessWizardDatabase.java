@@ -10,6 +10,7 @@ import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 @TypeConverters(LocalDateTypeConverter.class)
 @Database(entities = {User.class, UserInfo.class}, version = 1, exportSchema = false)
 public abstract class WellnessWizardDatabase extends RoomDatabase {
