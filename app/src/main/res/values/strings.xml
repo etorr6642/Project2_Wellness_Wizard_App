@@ -27,4 +27,7 @@
     <string name="evening">Evening</string>
     <string name="back2">Back</string>
     <string name="add">Add</string>
+    <string name="admin_menu">Admin Menu</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="add_workout">Add Workout</string>
 </resources>
