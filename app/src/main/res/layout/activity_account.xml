@@ -38,16 +38,60 @@
 
 
     <TextView
-        android:id="@+id/usernameDisplayTextView"
+        android:id="@+id/usernameLabelTextView"
         android:layout_width="112dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="40dp"
-        android:padding="8dp"
-        android:text="@string/usernameLabel"
+        android:layout_marginStart="40dp"
+        android:text="@string/usernameInfo"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/accountTextView"
+        />
+
+    <TextView
+        android:id="@+id/usernameDisplayTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf= "@id/usernameLabelTextView"
+        app:layout_constraintTop_toBottomOf="@id/accountTextView"
+        />
+
+
+    <TextView
+        android:id="@+id/passwordLabelTextView"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:padding="8dp"
+        android:text="@string/passwordInfo"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/usernameLabelTextView"
+        />
+
+    <TextView
+        android:id="@+id/passwordDisplayTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf= "@id/passwordLabelTextView"
+        app:layout_constraintTop_toBottomOf="@id/usernameDisplayTextView"
+        />
+
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/delete_account"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="300dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

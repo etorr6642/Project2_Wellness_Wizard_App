@@ -16,5 +16,7 @@
     <string name="login">Login</string>
     <string name="create_new_account">Create new Account</string>
     <string name="account_settings">Account Settings</string>
-    <string name="usernameLabel">Username:</string>
+    <string name="usernameInfo">Username:</string>
+    <string name="passwordInfo">Password:</string>
+    <string name="delete_account">Delete Account</string>
 </resources>
