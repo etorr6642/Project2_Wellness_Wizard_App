@@ -62,7 +62,4 @@ public class MainActivity extends AppCompatActivity {
         return new Intent(context, MainActivity.class);
     }
 
-
-
-    //TESTINGGGGGGGGGGG
 }
