@@ -48,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.addVitMedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AddVitMedActivity.AddVitMedActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
 
     }
 

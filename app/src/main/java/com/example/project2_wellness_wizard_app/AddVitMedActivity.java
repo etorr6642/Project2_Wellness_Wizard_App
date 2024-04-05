@@ -11,30 +11,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.project2_wellness_wizard_app.databinding.ActivityAccountBinding;
-import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
+import com.example.project2_wellness_wizard_app.databinding.ActivityAddVitMedBinding;
+import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
 
-public class AccountActivity extends AppCompatActivity {
+public class AddVitMedActivity extends AppCompatActivity {
 
-    private ActivityAccountBinding binding;
+    private ActivityAddVitMedBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAccountBinding.inflate(getLayoutInflater());
+        binding = ActivityAddVitMedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-        binding.AccountBackButton.setOnClickListener(new View.OnClickListener() {
+        binding.addVitMedBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = MainActivity.MainActivityIntentFactory((getApplicationContext()));
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
                 startActivity(intent);
             }
         });
+
     }
 
-    public static Intent accountIntentFactory(Context context){
-        return new Intent(context, AccountActivity.class);
+    public static Intent AddVitMedActivityIntentFactory(Context context){
+        return new Intent(context, AddVitMedActivity.class);
     }
 }
