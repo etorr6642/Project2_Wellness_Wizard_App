@@ -8,7 +8,6 @@
     android:backgroundTint="#F6F0FD"
     tools:context=".LoginActivity">
 
-
     <TextView
         android:id="@+id/titleLoginTextView"
         android:layout_width="match_parent"

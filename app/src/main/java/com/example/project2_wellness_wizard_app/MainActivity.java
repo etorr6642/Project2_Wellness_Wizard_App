@@ -2,6 +2,7 @@ package com.example.project2_wellness_wizard_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
        //Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
        //startActivity(intent);
