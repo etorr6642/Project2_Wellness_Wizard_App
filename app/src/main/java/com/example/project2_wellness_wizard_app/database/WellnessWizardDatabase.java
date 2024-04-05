@@ -2,13 +2,16 @@ package com.example.project2_wellness_wizard_app.database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
+import com.example.project2_wellness_wizard_app.database.TypeConverters.LocalDateTypeConverter;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@TypeConverters(LocalDateTypeConverter.class)
 @Database(entities = {User.class, UserInfo.class}, version = 1, exportSchema = false)
 public abstract class WellnessWizardDatabase extends RoomDatabase {
 

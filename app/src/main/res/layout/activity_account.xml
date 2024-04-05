@@ -7,4 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".AccountActivity">
 
+    <TextView
+        android:id="@+id/WellnessWizardTitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#6417F8"
+        android:text="@string/wellness_wizard"
+        android:textAlignment="center"
+        android:textColor="#8143F8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/accountTextView"
+        android:layout_width="190dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/account_settings"
+        android:textAlignment="center"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
+
+
+    <TextView
+        android:id="@+id/usernameDisplayTextView"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:padding="8dp"
+        android:text="@string/usernameLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/accountTextView"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

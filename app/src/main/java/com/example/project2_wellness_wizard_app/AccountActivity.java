@@ -8,12 +8,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.project2_wellness_wizard_app.databinding.ActivityAccountBinding;
+
 public class AccountActivity extends AppCompatActivity {
+
+    private ActivityAccountBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(binding.getRoot());
+
+
 
     }
 }
