@@ -30,4 +30,8 @@
     <string name="admin_menu">Admin Menu</string>
     <string name="manage_users">Manage Users</string>
     <string name="add_workout">Add Workout</string>
+    <string name="vit_med">Vit/Med</string>
+    <string name="get_workout_label">Get Workout</string>
+    <string name="generate_workout">Generate Workout</string>
+    <string name="workout_will_display_here">Workout will display here</string>
 </resources>
