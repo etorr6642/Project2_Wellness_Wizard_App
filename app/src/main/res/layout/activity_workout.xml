@@ -44,7 +44,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:hint="@string/workout_will_display_here"
-        android:padding="8dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/workoutLabelTextView" />

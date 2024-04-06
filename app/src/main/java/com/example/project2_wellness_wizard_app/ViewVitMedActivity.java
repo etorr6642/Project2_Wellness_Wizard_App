@@ -16,6 +16,9 @@ import com.example.project2_wellness_wizard_app.databinding.ActivityViewVitMedBi
 
 public class ViewVitMedActivity extends AppCompatActivity {
 
+    String vitMeds = "";
+    String mTimeOfDay = "";
+
     private ActivityViewVitMedBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -69,6 +69,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.getWorkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = WorkoutActivity.WorkoutActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
+        binding.trackWaterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = WaterActivity.WaterActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     public static Intent MainActivityIntentFactory(Context context){

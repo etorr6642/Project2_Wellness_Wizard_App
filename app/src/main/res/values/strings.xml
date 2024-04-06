@@ -34,4 +34,11 @@
     <string name="get_workout_label">Get Workout</string>
     <string name="generate_workout">Generate Workout</string>
     <string name="workout_will_display_here">Workout will display here</string>
+    <string name="enter_name">Enter name</string>
+    <string name="morning_noon_evening">Morning/Noon/Evening</string>
+    <string name="water_intake">Water Intake</string>
+    <string name="add_intake">Add Intake</string>
+    <string name="ml">mL</string>
+    <string name="enter_water_intake">Enter Water intake</string>
+    <string name="start_tracking">Start Tracking!</string>
 </resources>

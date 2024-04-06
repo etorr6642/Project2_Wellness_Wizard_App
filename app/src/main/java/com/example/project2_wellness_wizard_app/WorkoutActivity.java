@@ -3,6 +3,7 @@ package com.example.project2_wellness_wizard_app;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,14 @@ public class WorkoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityWorkoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.workoutBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     public static Intent WorkoutActivityIntentFactory(Context context){
