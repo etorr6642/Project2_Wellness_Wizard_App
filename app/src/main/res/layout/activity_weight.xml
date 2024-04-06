@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F0FD"
+    tools:context=".WaterActivity">
+
+    <TextView
+        android:id="@+id/WellnessWizardTitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#6417F8"
+        android:text="@string/wellness_wizard"
+        android:textAlignment="center"
+        android:textColor="#8143F8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/trackWeightILabelTextView"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/track_weight2"
+        android:textAlignment="center"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
+
+    <TextView
+        android:id="@+id/weightDisplayTextView"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:text="@string/start_tracking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trackWeightILabelTextView" />
+
+    <EditText
+        android:id="@+id/weightInputEditText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:hint="@string/enter_weight"
+        android:inputType="number"
+        android:padding="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lbLabelTextView"
+        app:layout_constraintEnd_toStartOf="@+id/lbLabelTextView" />
+
+    <TextView
+        android:id="@+id/lbLabelTextView"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="@string/lbs"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/addWeightButton"
+        app:layout_constraintTop_toBottomOf="@id/weightDisplayTextView" />
+
+    <Button
+        android:id="@+id/addWeightButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="250dp"
+        android:text="@string/add_weight"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/weightBackButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/back2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addWeightButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
