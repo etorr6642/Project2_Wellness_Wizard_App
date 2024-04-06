@@ -22,4 +22,6 @@ public interface UserDAO {
     @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " ORDER BY username")
     List<User> getAllUsers();
 
+    @Query(" DELETE FROM " + WellnessWizardDatabase.USER_TABLE)
+    void deleteAll();
 }

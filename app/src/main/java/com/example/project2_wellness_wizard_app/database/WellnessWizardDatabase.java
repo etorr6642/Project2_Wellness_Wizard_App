@@ -53,9 +53,19 @@ public abstract class WellnessWizardDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db){
             super.onCreate(db);
             Log.i(MainActivity.TAG, "Database Created! ");
-            //TODO: add databaseWriteExecuter(() -> {...}
+            databaseWriteExecutor.execute(()->{
+                UserDAO dao = INSTANCE.userDAO();
+                dao.deleteAll();
+                User admin = new User("admin1", "admin1");
+                admin.setAdmin(true);
+                dao.insert(admin);
+                User testUser1 = new User("testUser1", "testUser1");
+                dao.insert(testUser1);
+            });
         }
     };
 
     public abstract UserInfoDAO userInfoDAO();
+
+    public abstract UserDAO userDAO();
 }

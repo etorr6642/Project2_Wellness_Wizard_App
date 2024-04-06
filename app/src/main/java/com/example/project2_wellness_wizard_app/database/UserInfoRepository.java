@@ -14,12 +14,36 @@ import java.util.concurrent.Future;
 
 public class UserInfoRepository {
     private UserInfoDAO userInfoDAO;
+    private UserDAO userDAO;
     private ArrayList<UserInfo> allLogs;
 
-    public UserInfoRepository(Application application){
+    private static UserInfoRepository repository;
+
+    private UserInfoRepository(Application application){
         WellnessWizardDatabase db = WellnessWizardDatabase.getDatabase(application);
         this.userInfoDAO = db.userInfoDAO();
+        this.userDAO =db.userDAO();
         this.allLogs = (ArrayList<UserInfo>) this.userInfoDAO.getAllRecords();
+    }
+
+    public static UserInfoRepository getRepository(Application application){
+        if(repository!=null){
+            return repository;
+        }
+        Future<UserInfoRepository> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<UserInfoRepository>() {
+                    @Override
+                    public UserInfoRepository call() throws Exception {
+                        return new UserInfoRepository(application);
+                    }
+                }
+        );
+        try{
+            return future.get();
+        }catch (InterruptedException | ExecutionException e){
+            Log.d(MainActivity.TAG, "Problem getting UserInfoRepository, thread error");
+        }
+        return null;
     }
 
     public ArrayList<UserInfo> getAllLogs(){
@@ -41,6 +65,12 @@ public class UserInfoRepository {
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
             userInfoDAO.insert(userInfo);
+        });
+    }
+
+    public void insertUser(User... user){
+        WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
+            userDAO.insert(user);
         });
     }
 }
