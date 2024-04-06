@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         repository = UserInfoRepository.getRepository(getApplication());
 
-       //Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
-       //startActivity(intent);
+       Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
+       startActivity(intent);
 
         binding.accountSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
