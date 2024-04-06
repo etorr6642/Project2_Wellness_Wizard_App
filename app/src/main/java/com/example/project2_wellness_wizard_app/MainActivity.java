@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-       //Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
-       //startActivity(intent);
+       Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
+       startActivity(intent);
 
         binding.accountSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
