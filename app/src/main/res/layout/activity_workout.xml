@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F0FD"
-    tools:context=".ViewVitMedActivity">
-
+    tools:context=".WorkoutActivity">
 
     <TextView
         android:id="@+id/WellnessWizardTitleTextView"
@@ -25,11 +24,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/vitMedLabelTextView"
-        android:layout_width="100dp"
+        android:id="@+id/workoutLabelTextView"
+        android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginTop="20dp"
-        android:text="@string/vit_med"
+        android:text="@string/get_workout_label"
         android:textAlignment="center"
         android:textColor="#310486"
         android:textSize="20sp"
@@ -39,17 +38,32 @@
         app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
 
     <TextView
-        android:id="@+id/vitMedDisplayTextView"
+        android:id="@+id/workoutDisplayTextView"
         android:layout_width="360dp"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="@string/workout_will_display_here"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vitMedLabelTextView" />
+        app:layout_constraintTop_toBottomOf="@id/workoutLabelTextView" />
 
     <Button
-        android:id="@+id/viewVitMedBackButton"
+        android:id="@+id/generateWorkoutButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="300dp"
+        android:text="@string/generate_workout"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/workoutBackButton"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -58,7 +72,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vitMedDisplayTextView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/generateWorkoutButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
