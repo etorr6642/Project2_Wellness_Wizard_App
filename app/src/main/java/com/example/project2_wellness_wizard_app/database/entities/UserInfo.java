@@ -22,14 +22,16 @@ public class UserInfo {
     private int water;
     private double weight;
     private LocalDateTime date;
+    private int userId;
 
-    public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight) { //letting db create id
+    public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
         this.calories = calories;
         this.vitMeds = vitMeds;
         this.timeOfDay = timeOfDay;
         this.water = water;
         this.weight = weight;
+        this.userId= userId;
         date = LocalDateTime.now();
     }
 
@@ -53,12 +55,12 @@ public class UserInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserInfo userInfo = (UserInfo) o;
-        return userInfoID == userInfo.userInfoID && calories == userInfo.calories && Double.compare(water, userInfo.water) == 0 && Double.compare(weight, userInfo.weight) == 0 && Objects.equals(food, userInfo.food) && Objects.equals(vitMeds, userInfo.vitMeds) && Objects.equals(timeOfDay, userInfo.timeOfDay) && Objects.equals(date, userInfo.date);
+        return userInfoID == userInfo.userInfoID && calories == userInfo.calories && water == userInfo.water && Double.compare(weight, userInfo.weight) == 0 && userId == userInfo.userId && Objects.equals(food, userInfo.food) && Objects.equals(vitMeds, userInfo.vitMeds) && Objects.equals(timeOfDay, userInfo.timeOfDay) && Objects.equals(date, userInfo.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userInfoID, food, calories, vitMeds, timeOfDay, water, weight, date);
+        return Objects.hash(userInfoID, food, calories, vitMeds, timeOfDay, water, weight, date, userId);
     }
 
     public int getUserInfoID() {
@@ -123,5 +125,13 @@ public class UserInfo {
 
     public void setDate(LocalDateTime date) {
         this.date = date;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

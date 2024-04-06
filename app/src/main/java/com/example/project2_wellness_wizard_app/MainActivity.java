@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
+import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     String mTimeOfDay = "";
     double mWater = 0.0;
     double mWeight = 0.0;
+    //TODO: add login information
+    private int loggedInUserId=-1;
+    private User user;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         repository = UserInfoRepository.getRepository(getApplication());
+        
+        loginUser();
+        
+        invalidateOptionsMenu();
 
        Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
        startActivity(intent);
@@ -84,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void loginUser() {
+        
     }
 
     public static Intent MainActivityIntentFactory(Context context){

@@ -19,14 +19,14 @@ import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+//Wipe data and change version number to 1 if users go missing
 @TypeConverters(LocalDateTypeConverter.class)
 @Database(entities = {User.class, UserInfo.class}, version = 1, exportSchema = false)
 public abstract class WellnessWizardDatabase extends RoomDatabase {
 
-    private static final String DATABASE_NAME = "WellnessWizard_Database";
+    private static final String DATABASE_NAME = "WellnessWizardDatabase";
     public static final String USER_INFO_TABLE = "userInfoTable";
-    public static final String USER_TABLE = "userTable";
+    public static final String USER_TABLE = "usertable";
 
     public static volatile WellnessWizardDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -50,10 +50,10 @@ public abstract class WellnessWizardDatabase extends RoomDatabase {
     //add default users here
     private static final RoomDatabase.Callback addDefaultValues = new RoomDatabase.Callback(){
         @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db){
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             Log.i(MainActivity.TAG, "Database Created! ");
-            databaseWriteExecutor.execute(()->{
+            databaseWriteExecutor.execute(() -> {
                 UserDAO dao = INSTANCE.userDAO();
                 dao.deleteAll();
                 User admin = new User("admin1", "admin1");
