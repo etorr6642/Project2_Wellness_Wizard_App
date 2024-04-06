@@ -41,4 +41,13 @@
     <string name="ml">mL</string>
     <string name="enter_water_intake">Enter Water intake</string>
     <string name="start_tracking">Start Tracking!</string>
+    <string name="food_intake">Food Intake</string>
+    <string name="food">Food:</string>
+    <string name="enter_food">Enter Food</string>
+    <string name="cal">Cal:</string>
+    <string name="enter_calories">Enter Calories</string>
+    <string name="track_weight2">Track Weight</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="lbs">lbs</string>
+    <string name="add_weight">Add Weight</string>
 </resources>

@@ -84,6 +84,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.trackFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = FoodActivity.FoodActivityIntentFactory((getApplicationContext()));
+                startActivity(intent);
+            }
+        });
+
+        binding.trackWeightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = WeightActivity.WeightActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     public static Intent MainActivityIntentFactory(Context context){
