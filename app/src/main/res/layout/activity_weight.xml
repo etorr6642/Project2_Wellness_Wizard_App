@@ -54,7 +54,7 @@
         android:layout_height="40dp"
         android:gravity="center"
         android:hint="@string/enter_weight"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:padding="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/lbLabelTextView"
         app:layout_constraintEnd_toStartOf="@+id/lbLabelTextView" />

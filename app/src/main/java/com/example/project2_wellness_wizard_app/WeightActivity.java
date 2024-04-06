@@ -33,6 +33,6 @@ public class WeightActivity extends AppCompatActivity {
     }
 
     public static Intent WeightActivityIntentFactory(Context context){
-        return new Intent(context, WaterActivity.class);
+        return new Intent(context, WeightActivity.class);
     }
 }
