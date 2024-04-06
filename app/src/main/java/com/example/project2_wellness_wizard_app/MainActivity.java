@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         repository = UserInfoRepository.getRepository(getApplication());
 
-       Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
-       startActivity(intent);
+       //Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
+       //startActivity(intent);
 
         binding.accountSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = WaterActivity.WaterActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
+        binding.trackFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = FoodActivity.FoodActivityIntentFactory((getApplicationContext()));
                 startActivity(intent);
             }
         });

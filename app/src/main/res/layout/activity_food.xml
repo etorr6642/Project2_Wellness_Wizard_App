@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F0FD"
+    tools:context=".FoodActivity">
+
+    <TextView
+        android:id="@+id/WellnessWizardTitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#6417F8"
+        android:text="@string/wellness_wizard"
+        android:textAlignment="center"
+        android:textColor="#8143F8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodIntakeLabelTextView"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/food_intake"
+        android:textAlignment="center"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
+
+    <TextView
+        android:id="@+id/foodDisplayTextView"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:text="@string/start_tracking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foodIntakeLabelTextView" />
+
+    <TextView
+        android:id="@+id/foodLabelTextView"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/food"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foodDisplayTextView" />
+
+    <EditText
+        android:id="@+id/foodInputTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="@string/enter_food"
+        android:inputType="textAutoComplete"
+        app:layout_constraintBaseline_toBaselineOf="@id/foodLabelTextView"
+        app:layout_constraintStart_toEndOf="@id/foodLabelTextView" />
+
+    <TextView
+        android:id="@+id/calorieLabelTextView"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/cal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foodLabelTextView" />
+
+    <EditText
+        android:id="@+id/calorieInputTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="@string/enter_calories"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@id/calorieLabelTextView"
+        app:layout_constraintStart_toEndOf="@id/calorieLabelTextView" />
+
+    <Button
+        android:id="@+id/addFoodButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/add_intake"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calorieInputTextView" />
+
+    <Button
+        android:id="@+id/foodBackButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/back2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addFoodButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
