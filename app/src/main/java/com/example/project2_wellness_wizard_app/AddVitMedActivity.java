@@ -11,10 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityAddVitMedBinding;
 import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
 
 public class AddVitMedActivity extends AppCompatActivity {
+
+    String vitMeds = "";
+    String mTimeOfDay = "";
 
     private ActivityAddVitMedBinding binding;
 
