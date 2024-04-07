@@ -73,4 +73,20 @@ public class UserInfoRepository {
             userDAO.insert(user);
         });
     }
+
+    public User getUserByUserName(String username) {
+        Future<User> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<User>() {
+                    @Override
+                    public User call() throws Exception {
+                        return userDAO.getUserbyUserName(username);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all user by username");
+        }
+        return null;
+    }
 }
