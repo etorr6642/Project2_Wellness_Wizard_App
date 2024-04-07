@@ -1,19 +1,30 @@
 package com.example.project2_wellness_wizard_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
+import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
+    static final String SHARED_PREFERENCE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SHARED_PREFERENCE_USERID_KEY";
+    private static final int LOGGED_OUT =-1;
+    private static final String SAVED_INSTANCE_STATE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SAVED_INSTANCE_STATE_USERID_KEY";
     private ActivityMainBinding binding;
+    private ActivityLoginBinding loginBinding;
 
     private UserInfoRepository repository;
 
@@ -40,16 +51,21 @@ public class MainActivity extends AppCompatActivity {
         repository = UserInfoRepository.getRepository(getApplication());
         
         loginUser();
+
+        if(loggedInUserId==-1){
+            Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
+            startActivity(intent);
+        }
         
         invalidateOptionsMenu();
 
-       Intent intent = LoginActivity.loginIntentFactory((getApplicationContext()));
-       startActivity(intent);
+/**
 
+*/
         binding.accountSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+
                 Intent intent = AccountActivity.accountIntentFactory((getApplicationContext()));
                 startActivity(intent);
             }
@@ -97,9 +113,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
+        loggedInUserId = getIntent().getIntExtra(MAIN_ACTIVITY_USER_ID, -1);
         
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.logoutMenuItem);
+        item.setVisible(true);
+        item.setTitle("Eddie");
+        return true;
+    }
+
+    static Intent MainActivityIntentFactory(Context context, int userId){
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra(MAIN_ACTIVITY_USER_ID, userId);
+        return intent;
+    }
     public static Intent MainActivityIntentFactory(Context context){
         return new Intent(context, MainActivity.class);
     }
