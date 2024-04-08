@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     int mCalories = 0;
     String vitMeds = "";
     String mTimeOfDay = "";
-    double mWater = 0.0;
+    int mWater = 0;
     double mWeight = 0.0;
     //TODO: add login information
     private int loggedInUserId=-1;
@@ -63,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         }
         
 
-
-/**
-
-*/
         binding.accountSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

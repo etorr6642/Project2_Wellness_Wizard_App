@@ -15,8 +15,11 @@ public interface UserInfoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(UserInfo userInfo);
 
-    @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_INFO_TABLE)
+    @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " ORDER BY date DESC")
     List<UserInfo> getAllRecords();
+
+    @Query(" SELECT water FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " ORDER BY date DESC")
+    List<Integer> getAllWaterRecords();
 
 
 
