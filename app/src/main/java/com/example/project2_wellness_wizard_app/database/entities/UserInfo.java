@@ -2,6 +2,7 @@ package com.example.project2_wellness_wizard_app.database.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -24,6 +25,7 @@ public class UserInfo {
     private LocalDateTime date;
     private int userId;
 
+    @Ignore
     public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
         this.calories = calories;
@@ -32,6 +34,12 @@ public class UserInfo {
         this.water = water;
         this.weight = weight;
         this.userId= userId;
+        date = LocalDateTime.now();
+    }
+
+    public UserInfo(int water, int userId) {
+        this.water = water;
+        this.userId = userId;
         date = LocalDateTime.now();
     }
 
@@ -49,6 +57,8 @@ public class UserInfo {
                 ", date=" + date.toString() +
                 '}';
     }
+
+
 
     @Override
     public boolean equals(Object o) {

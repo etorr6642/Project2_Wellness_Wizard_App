@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     int mCalories = 0;
     String vitMeds = "";
     String mTimeOfDay = "";
-    double mWater = 0.0;
+    int mWater = 0;
     double mWeight = 0.0;
 
     private int loggedInUserId=-1;
