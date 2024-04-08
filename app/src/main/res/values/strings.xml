@@ -50,4 +50,6 @@
     <string name="enter_weight">Enter Weight</string>
     <string name="lbs">lbs</string>
     <string name="add_weight">Add Weight</string>
+    <string name="preference_file_key">examplePreferenceFileNameUserInfo</string>
+    <string name="preference_userId_key">examplePreferenceUserIdKeyUserInfo</string>
 </resources>

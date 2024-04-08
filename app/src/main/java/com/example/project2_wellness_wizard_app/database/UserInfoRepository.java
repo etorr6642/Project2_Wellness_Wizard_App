@@ -3,6 +3,8 @@ package com.example.project2_wellness_wizard_app.database;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.project2_wellness_wizard_app.MainActivity;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
@@ -74,19 +76,12 @@ public class UserInfoRepository {
         });
     }
 
-    public User getUserByUserName(String username) {
-        Future<User> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
-                new Callable<User>() {
-                    @Override
-                    public User call() throws Exception {
-                        return userDAO.getUserbyUserName(username);
-                    }
-                });
-        try{
-            return future.get();
-        }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all user by username");
-        }
-        return null;
+    public LiveData<User> getUserByUserName(String username) {
+        return userDAO.getUserbyUserName(username);
     }
+
+    public LiveData<User> getUserByUserId(int userId) {
+        return userDAO.getUserbyUserId(userId);
+    }
+
 }

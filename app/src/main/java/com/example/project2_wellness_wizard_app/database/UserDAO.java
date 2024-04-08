@@ -1,5 +1,6 @@
 package com.example.project2_wellness_wizard_app.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,11 +21,14 @@ public interface UserDAO {
     void delete(User user);
 
     @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " ORDER BY username")
-    List<User> getAllUsers();
+    LiveData<List<User>> getAllUsers();
 
     @Query(" DELETE FROM " + WellnessWizardDatabase.USER_TABLE)
     void deleteAll();
 
     @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE username = :username")
-    User getUserbyUserName(String username);
+    LiveData<User> getUserbyUserName(String username);
+
+    @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE userID = :userID")
+    LiveData<User> getUserbyUserId(int userID);
 }
