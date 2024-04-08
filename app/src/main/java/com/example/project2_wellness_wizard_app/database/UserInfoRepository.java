@@ -17,6 +17,8 @@ import java.util.concurrent.Future;
 public class UserInfoRepository {
     private UserInfoDAO userInfoDAO;
     private UserDAO userDAO;
+
+    private WorkoutDAO workoutDAO;
     private ArrayList<UserInfo> allLogs;
 
     private static UserInfoRepository repository;
