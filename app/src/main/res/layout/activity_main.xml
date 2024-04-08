@@ -122,6 +122,20 @@
         app:layout_constraintTop_toBottomOf="@id/trackFoodButton" />
 
     <Button
+        android:id="@+id/adminMenuButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/admin_menu2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trackWeightButton" />
+
+    <Button
         android:id="@+id/logoutButton"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -131,7 +145,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trackWeightButton" />
+        app:layout_constraintTop_toBottomOf="@id/adminMenuButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
