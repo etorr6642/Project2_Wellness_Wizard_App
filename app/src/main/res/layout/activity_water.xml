@@ -52,11 +52,13 @@
         android:id="@+id/waterInputEditText"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:hint="@string/enter_water_intake"
         android:inputType="number"
         android:padding="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/mLLabelTextView"
+        app:layout_constraintTop_toBottomOf="@id/waterDisplayTextView"
         app:layout_constraintEnd_toStartOf="@+id/mLLabelTextView" />
 
     <TextView
@@ -81,7 +83,7 @@
         android:text="@string/add_intake"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/waterInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
