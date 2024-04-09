@@ -15,7 +15,9 @@ import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWaterBinding;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class WaterActivity extends AppCompatActivity {
@@ -25,7 +27,8 @@ public class WaterActivity extends AppCompatActivity {
     private UserInfoRepository repository;
     public static final String TAG = "WELLNESS_WIZARD";
     int mWater = 0;
-    private LocalDateTime date;
+    private final LocalDate date = LocalDate.now();
+    private final LocalTime time = LocalTime.now();
     private int loggedInUserId=-1;
     private User user;
 
@@ -57,19 +60,6 @@ public class WaterActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser() {
-        //TODO: make login method functional
-        user = new User("Eddie", "password");
-        loggedInUserId = getIntent().getIntExtra(MAIN_ACTIVITY_USER_ID, -1);
-
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "Water intake: " + mWater + "\n"
-                + "Date: " + date.toString() + "\n";
-    }
 
     private void updateDisplay() {
         ArrayList<Integer> allLogs = repository.getAllWaterLogs();
@@ -80,13 +70,13 @@ public class WaterActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for(Integer water: allLogs){
-            sb.append(water);
+            sb.append("Water Intake: ").append(water).append("     Date: ").append(date).append("      Time: ").append(time).append("\n");
         }
-        //sb.append(date.toString());
 
         binding.waterDisplayTextView.setText(sb.toString());
     }
 
+    //TODO: FIX ERROR, grab userId from current user
     private void insertWaterRecord() {
         UserInfo info = new UserInfo(mWater, loggedInUserId);
         repository.insertUserInfo(info);
