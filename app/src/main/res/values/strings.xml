@@ -55,4 +55,5 @@
     <string name="preference_file_key">examplePreferenceFileNameUserInfo</string>
     <string name="preference_userId_key">examplePreferenceUserIdKeyUserInfo</string>
     <string name="admin_menu2">Admin Menu</string>
+    <string name="back3">Back</string>
 </resources>

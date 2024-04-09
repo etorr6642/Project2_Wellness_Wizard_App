@@ -130,6 +130,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //TODO: check if admin
+        //check if admin -> then Button.setVisibility(View.VISIBLE);
+        //else if not admin -> Button.setVisibility(View.INVISIBLE);
+        binding.adminMenuButton.setVisibility(View.VISIBLE);
+
+        binding.adminMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AdminActivity.AdminActivityIntentFactory(getApplicationContext()); //should i do context: MainActivity.this??
+                startActivity(intent);
+            }
+        });
     }
 
     private void loginUser(Bundle savedInstanceState) {
