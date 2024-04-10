@@ -31,4 +31,8 @@ public interface UserDAO {
 
     @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE userID = :userID")
     LiveData<User> getUserbyUserId(int userID);
+
+    @Query("SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE isAdmin = true")
+    LiveData<User> getUserByIsAdmin();
+
 }

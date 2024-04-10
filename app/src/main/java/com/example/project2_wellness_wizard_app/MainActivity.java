@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "WELLNESS_WIZARD";
 
+    private UserInfoRepository userRepo = UserInfoRepository.getRepository(getApplication());
+
     String mFood = "";
     int mCalories = 0;
     String vitMeds = "";
@@ -134,7 +136,17 @@ public class MainActivity extends AppCompatActivity {
         //TODO: check if admin
         //check if admin -> then Button.setVisibility(View.VISIBLE);
         //else if not admin -> Button.setVisibility(View.INVISIBLE);
-        binding.adminMenuButton.setVisibility(View.VISIBLE);
+        //binding.adminMenuButton.setVisibility(View.VISIBLE);
+        //verifyAdmin(userRepo); this is if what is in the bottom is implemented in a method and the method is then called in the onCreate
+        LiveData<User> userLiveData = repository.getUserIfIsAdmin();
+        userLiveData.observe(this, user ->{
+            if(user != null && user.isAdmin()){
+                binding.adminMenuButton.setVisibility(View.VISIBLE);
+            }
+            else{
+                binding.adminMenuButton.setVisibility(View.INVISIBLE);
+            }
+        });
 
         binding.adminMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void loginUser(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),

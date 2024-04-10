@@ -102,4 +102,8 @@ public class UserInfoRepository {
         return userDAO.getUserbyUserId(userId);
     }
 
+    public LiveData<User> getUserIfIsAdmin(){
+        return userDAO.getUserByIsAdmin();
+    }
+
 }
