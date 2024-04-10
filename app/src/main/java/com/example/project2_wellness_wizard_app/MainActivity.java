@@ -133,20 +133,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //TODO: check if admin
-        //check if admin -> then Button.setVisibility(View.VISIBLE);
-        //else if not admin -> Button.setVisibility(View.INVISIBLE);
-        //binding.adminMenuButton.setVisibility(View.VISIBLE);
-        //verifyAdmin(userRepo); this is if what is in the bottom is implemented in a method and the method is then called in the onCreate
-        LiveData<User> userLiveData = repository.getUserIfIsAdmin();
-        userLiveData.observe(this, user ->{
-            if(user != null && user.isAdmin()){
-                binding.adminMenuButton.setVisibility(View.VISIBLE);
-            }
-            else{
-                binding.adminMenuButton.setVisibility(View.INVISIBLE);
-            }
-        });
 
         binding.adminMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
             this.user = user;
             if(this.user!=null){
                 invalidateOptionsMenu();
+                if(this.user.isAdmin()){
+                    binding.adminMenuButton.setVisibility(View.VISIBLE);
+                }else{
+                    binding.adminMenuButton.setVisibility(View.INVISIBLE);
+                }
             }
         });
 
