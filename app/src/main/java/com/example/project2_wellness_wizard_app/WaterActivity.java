@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 
+import com.example.project2_wellness_wizard_app.database.UserInfoDAO;
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
@@ -27,8 +29,11 @@ public class WaterActivity extends AppCompatActivity {
     int mWater = 0;
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
-    private int loggedInUserId=-1;
-    private User user;
+
+    private UserInfo userInfo;
+    private int loggedInUserId= -1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class WaterActivity extends AppCompatActivity {
 
         binding.waterDisplayTextView.setMovementMethod(new ScrollingMovementMethod()); //added to scroll in water display
 
+        updateDisplay();
         binding.addWaterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +74,7 @@ public class WaterActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for(Integer water: allLogs){
-            sb.append("Water Intake: ").append(water).append("     Date: ").append(date).append("      Time: ").append(time).append("\n");
+            sb.append("Water Intake: ").append(water).append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
         binding.waterDisplayTextView.setText(sb.toString());
@@ -76,8 +82,9 @@ public class WaterActivity extends AppCompatActivity {
 
     //TODO: FIX ERROR, grab userId from current user
     private void insertWaterRecord() {
-        UserInfo info = new UserInfo(mWater, loggedInUserId);
+        UserInfo info = new UserInfo(mWater,loggedInUserId);
         repository.insertUserInfo(info);
+        updateDisplay();
     }
 
     private void getInformationFromDisplay() {
