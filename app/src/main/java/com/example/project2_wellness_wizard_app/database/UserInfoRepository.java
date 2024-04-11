@@ -17,6 +17,8 @@ import java.util.concurrent.Future;
 public class UserInfoRepository {
     private UserInfoDAO userInfoDAO;
     private UserDAO userDAO;
+
+    private WorkoutDAO workoutDAO;
     private ArrayList<UserInfo> allLogs;
 
     private static UserInfoRepository repository;
@@ -64,6 +66,7 @@ public class UserInfoRepository {
         return null;
     }
 
+
     public ArrayList<Integer> getAllWaterLogs (int userId){
         Future<ArrayList<Integer>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<Integer>>() {
@@ -98,6 +101,10 @@ public class UserInfoRepository {
 
     public LiveData<User> getUserByUserId(int userId) {
         return userDAO.getUserbyUserId(userId);
+    }
+
+    public LiveData<User> getUserIfIsAdmin(){
+        return userDAO.getUserByIsAdmin();
     }
 
 }

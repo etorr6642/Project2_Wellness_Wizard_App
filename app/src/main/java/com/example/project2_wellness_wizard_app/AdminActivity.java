@@ -24,10 +24,10 @@ public class AdminActivity extends AppCompatActivity {
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.logoutAdminButton.setOnClickListener(new View.OnClickListener() {
+        binding.backAdminButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
                 startActivity(intent);
             }
         });
@@ -35,6 +35,6 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     public static Intent AdminActivityIntentFactory(Context context){
-        return new Intent(context, MainActivity.class);
+        return new Intent(context, AdminActivity.class);
     }
 }

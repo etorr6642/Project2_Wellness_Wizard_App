@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "WELLNESS_WIZARD";
 
+
     String mFood = "";
     int mCalories = 0;
     String vitMeds = "";
@@ -78,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
         binding.logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
-                startActivity(intent);
+                showAlertDialog();
             }
         });
 
@@ -130,7 +130,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        binding.adminMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AdminActivity.AdminActivityIntentFactory(getApplicationContext()); //should i do context: MainActivity.this??
+                startActivity(intent);
+            }
+        });
     }
+
 
     private void loginUser(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),
@@ -152,6 +162,11 @@ public class MainActivity extends AppCompatActivity {
             this.user = user;
             if(this.user!=null){
                 invalidateOptionsMenu();
+                if(this.user.isAdmin()){
+                    binding.adminMenuButton.setVisibility(View.VISIBLE);
+                }else{
+                    binding.adminMenuButton.setVisibility(View.INVISIBLE);
+                }
             }
         });
 
