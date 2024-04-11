@@ -25,7 +25,6 @@ public class UserInfo {
     private LocalDateTime date;
     private int userId;
 
-    @Ignore
     public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
         this.calories = calories;
@@ -37,10 +36,24 @@ public class UserInfo {
         date = LocalDateTime.now();
     }
 
-    public UserInfo(int water, int userId) {
+    private UserInfo(int water, int userId) {
         this.water = water;
         this.userId = userId;
         date = LocalDateTime.now();
+    }
+
+    public static UserInfo Water(int water, int userId){
+        return new UserInfo(water, userId);
+    }
+
+    private UserInfo(double weight, int userId) {
+        this.weight = weight;
+        this.userId= userId;
+        date = LocalDateTime.now();
+    }
+
+    public static UserInfo Weight(double weight, int userId){
+        return new UserInfo(weight, userId);
     }
 
     @NonNull

@@ -56,4 +56,5 @@
     <string name="preference_userId_key">examplePreferenceUserIdKeyUserInfo</string>
     <string name="admin_menu2">Admin Menu</string>
     <string name="back3">Back</string>
+    <string name="nothing_to_show_start_tracking_weight">Nothing to show. Start tracking weight!</string>
 </resources>

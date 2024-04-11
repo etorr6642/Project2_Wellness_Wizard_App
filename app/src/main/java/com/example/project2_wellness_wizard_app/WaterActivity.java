@@ -89,7 +89,7 @@ public class WaterActivity extends AppCompatActivity {
     }
 
     private void insertWaterRecord() {
-        UserInfo info = new UserInfo(mWater,loggedInUserId);
+        UserInfo info = UserInfo.Water(mWater,loggedInUserId);
         repository.insertUserInfo(info);
         updateDisplay();
     }

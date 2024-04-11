@@ -83,6 +83,22 @@ public class UserInfoRepository {
         return null;
     }
 
+    public ArrayList<Double> getAllWeightLogs (int userId){
+        Future<ArrayList<Double>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Double>>() {
+                    @Override
+                    public ArrayList<Double> call() throws Exception {
+                        return (ArrayList<Double>) userInfoDAO.getAllWeightRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+        }
+        return null;
+    }
+
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
             userInfoDAO.insert(userInfo);
