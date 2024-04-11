@@ -2,6 +2,7 @@ package com.example.project2_wellness_wizard_app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -30,8 +31,10 @@ public class WaterActivity extends AppCompatActivity {
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
 
-    private UserInfo userInfo;
-    private int loggedInUserId= -1;
+
+    private int loggedInUserId =-1 ;
+
+
 
 
 
@@ -44,6 +47,11 @@ public class WaterActivity extends AppCompatActivity {
         repository = UserInfoRepository.getRepository(getApplication()); //gives access to our bd
 
         binding.waterDisplayTextView.setMovementMethod(new ScrollingMovementMethod()); //added to scroll in water display
+
+        SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+
+        loggedInUserId = sharedPreferences.getInt(getString(R.string.preference_userId_key),-1);
 
         updateDisplay();
         binding.addWaterButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +74,7 @@ public class WaterActivity extends AppCompatActivity {
 
 
     private void updateDisplay() {
-        ArrayList<Integer> allLogs = repository.getAllWaterLogs();
+        ArrayList<Integer> allLogs = repository.getAllWaterLogs(loggedInUserId);
 
         if(allLogs.isEmpty()){
             binding.waterDisplayTextView.setText(R.string.nothing_to_show_start_tracking_water);
