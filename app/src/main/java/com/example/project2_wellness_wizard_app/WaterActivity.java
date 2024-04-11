@@ -72,7 +72,7 @@ public class WaterActivity extends AppCompatActivity {
     }
 
     private void updateDisplay() {
-        ArrayList<Integer> allLogs = repository.getAllWaterLogs();
+        ArrayList<Integer> allLogs = repository.getAllWaterLogs(loggedInUserId);
 
         if(allLogs.isEmpty()){
             binding.waterDisplayTextView.setText(R.string.nothing_to_show_start_tracking_water);

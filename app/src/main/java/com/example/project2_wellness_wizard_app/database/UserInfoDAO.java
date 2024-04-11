@@ -18,8 +18,8 @@ public interface UserInfoDAO {
     @Query(" SELECT * FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " ORDER BY date DESC")
     List<UserInfo> getAllRecords();
 
-    @Query(" SELECT water FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " ORDER BY date DESC")
-    List<Integer> getAllWaterRecords();
+    @Query(" SELECT water FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE userId = :userId ORDER BY date DESC")
+    List<Integer> getAllWaterRecords(int userId);
 
 
 

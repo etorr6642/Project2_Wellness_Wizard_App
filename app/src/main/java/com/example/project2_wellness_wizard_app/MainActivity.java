@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "WELLNESS_WIZARD";
 
-    private UserInfoRepository userRepo = UserInfoRepository.getRepository(getApplication());
 
     String mFood = "";
     int mCalories = 0;

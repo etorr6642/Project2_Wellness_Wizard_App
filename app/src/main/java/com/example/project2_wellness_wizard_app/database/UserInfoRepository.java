@@ -66,12 +66,12 @@ public class UserInfoRepository {
         return null;
     }
 
-    public ArrayList<Integer> getAllWaterLogs(){
+    public ArrayList<Integer> getAllWaterLogs(int userId){
         Future<ArrayList<Integer>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<Integer>>() {
                     @Override
                     public ArrayList<Integer> call() throws Exception {
-                        return (ArrayList<Integer>) userInfoDAO.getAllWaterRecords();
+                        return (ArrayList<Integer>) userInfoDAO.getAllWaterRecords(userId);
                     }
                 });
         try{
