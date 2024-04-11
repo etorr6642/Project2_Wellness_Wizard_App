@@ -82,13 +82,12 @@ public class WaterActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for(Integer water: allLogs){
-            sb.append("Water Intake: ").append(water).append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
+            sb.append("Water Intake: ").append(water).append("mL").append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
         binding.waterDisplayTextView.setText(sb.toString());
     }
 
-    //TODO: FIX ERROR, grab userId from current user
     private void insertWaterRecord() {
         UserInfo info = new UserInfo(mWater,loggedInUserId);
         repository.insertUserInfo(info);
