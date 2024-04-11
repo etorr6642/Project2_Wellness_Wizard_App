@@ -78,7 +78,7 @@ public class UserInfoRepository {
         try{
             return future.get();
         }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
         }
         return null;
     }
@@ -94,7 +94,39 @@ public class UserInfoRepository {
         try{
             return future.get();
         }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
+    public ArrayList<String> getAllFoodLogs (int userId){
+        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                        return (ArrayList<String>) userInfoDAO.getAllFoodRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
+    public ArrayList<Integer> getAllCalorieLogs (int userId){
+        Future<ArrayList<Integer>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Integer>>() {
+                    @Override
+                    public ArrayList<Integer> call() throws Exception {
+                        return (ArrayList<Integer>) userInfoDAO.getAllCalorieRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
         }
         return null;
     }

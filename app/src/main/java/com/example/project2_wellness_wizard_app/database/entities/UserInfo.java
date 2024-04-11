@@ -56,6 +56,17 @@ public class UserInfo {
         return new UserInfo(weight, userId);
     }
 
+    private UserInfo(String food, int calories, int userId){
+        this.food = food;
+        this.calories = calories;
+        this.userId = userId;
+        date = LocalDateTime.now();
+    }
+
+    public static UserInfo Food(String food, int calories, int userId){
+        return new UserInfo(food, calories, userId);
+    }
+
     @NonNull
     @Override
     public String toString() {
