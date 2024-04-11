@@ -66,7 +66,8 @@ public class UserInfoRepository {
         return null;
     }
 
-    public ArrayList<Integer> getAllWaterLogs(int userId){
+
+    public ArrayList<Integer> getAllWaterLogs (int userId){
         Future<ArrayList<Integer>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<Integer>>() {
                     @Override
