@@ -78,12 +78,20 @@ public abstract class WellnessWizardDatabase extends RoomDatabase {
                 WorkoutDAO dao = INSTANCE.workoutDAO();
                 //dao.deleteALlWorkout();
 
-                Workout Cardio = new Workout( "Jumping Jacks: 30 seconds\n" + "High knees: Bring knees up high for 30 seconds\n" + "Burpees: Perform 10 burpees\n" + "Repeat 3 times.\n");
+                Workout Cardio = new Workout( "==CARDIO==\n"+ "Jumping Jacks: 30 seconds\n" + "High knees: Bring knees up high for 30 seconds\n" + "Burpees: Perform 10 burpees\n" + "Repeat 3 times.\n");
                 dao.insert(Cardio);
-                Workout Back = new Workout("Lat pull-down: 10 reps\n" + "Seated Cable Row: 12 reps\n" + "Bent Over Rows: 10 reps\n" + "Pull-Ups: 6-8 Reps (use assistance if needed)\n" + "Repeat each 3 times.\n");
+                Workout Back = new Workout("==BACK==\n"+ "Lat pull-down: 10 reps\n" + "Seated Cable Row: 12 reps\n" + "Bent Over Rows: 10 reps\n" + "Pull-Ups: 6-8 Reps (use assistance if needed)\n" + "Repeat each 3 times.\n");
                 dao.insert(Back);
-                Workout BackBiceps = new Workout("Lat Pull-Down: 10 reps\n" + "Chest Supported Row: 10 reps\n" + "Seated Cable Row: 12 reps\n" + "Lat Push-Downs: 12 reps\n" + "Dumbbell Concentration Curls: 12 reps\n" + "Dumbbell Hammer Curls: 12 reps\n" + "Repeat each 3 times.\n");
+                Workout BackBiceps = new Workout("==BACK/BICEPS==\n"+ "Lat Pull-Down: 10 reps\n" + "Chest Supported Row: 10 reps\n" + "Seated Cable Row: 12 reps\n" + "Lat Push-Downs: 12 reps\n" + "Dumbbell Concentration Curls: 12 reps\n" + "Dumbbell Hammer Curls: 12 reps\n" + "Repeat each 3 times.\n");
                 dao.insert(BackBiceps);
+                Workout HamGlu = new Workout("==HAMSTRINGS/GLUTES==\n" + "Hip Thrust: 10 reps\n" + "Kickbacks: 10 reps\n"+ "Glute Extensions: 12 reps\n" + "Hamstring Curls: 15 reps\n" + "RDL: 15 reps\n" + "Repeat 3 times.\n");
+                dao.insert(HamGlu);
+                Workout QuadsGlu = new Workout("==QUADS/GLUTES==\n" + "Leg Extensions: 12 reps\n" + "Leg Press: 10 reps\n" + "Walking Lunges: 12 reps (each leg)\n" + "Good Mornings: 12 reps\n" + "Hip Thrust: 12 reps\n" + "Kickbacks: 12 reps\n" + "Repeat 3 times.\n");
+                dao.insert(QuadsGlu);
+                Workout Core = new Workout("==CORE==\n"+ "Cross Body Sit Ups: 15 reps\n" + "Russian Twists: 15 reps\n" + " Leg Raises: 12 reps\n" + "Reverse Crunches: 20 reps\n" + "Repeat 3 times.\n");
+                dao.insert(Core);
+                Workout Chest = new Workout("==CHEST/SHOULDERS/TRICEPS==\n" + "Bench Press: 10 reps\n" + "Incline Press: 10 reps\n" + "Pec Deck Flys: 15 reps\n" + "Shoulder Press: 10 reps\n" + "Lateral raises: 15 reps\n" + "Tricep Extensions: 15 reps\n" + "Repeat 3 times.\n");
+                dao.insert(Chest);
             });
         }
     };
