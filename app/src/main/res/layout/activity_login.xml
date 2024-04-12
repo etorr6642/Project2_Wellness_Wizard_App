@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F0FD"
     tools:context=".LoginActivity">
 
     <TextView
@@ -16,6 +17,7 @@
         android:gravity="center"
         android:text="@string/welcome_to_wellness_wizard"
         android:textSize="42sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
