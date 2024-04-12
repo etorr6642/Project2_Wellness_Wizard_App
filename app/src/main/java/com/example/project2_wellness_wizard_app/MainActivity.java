@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = AccountActivity.accountIntentFactory((getApplicationContext()));
+                Intent intent = AccountActivity.AccountIntentFactory((getApplicationContext()));
                 startActivity(intent);
             }
         });

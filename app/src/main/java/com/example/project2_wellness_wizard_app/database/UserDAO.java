@@ -41,4 +41,8 @@ public interface UserDAO {
     @Query("SELECT password FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE userId = :userId")
     String getPassword(int userId);
 
+    @Query("SELECT username FROM " + WellnessWizardDatabase.USER_TABLE + " ORDER by username")
+    List<String> getAllUsernames();
+
+
 }
