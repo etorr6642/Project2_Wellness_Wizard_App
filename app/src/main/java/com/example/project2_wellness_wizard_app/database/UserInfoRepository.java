@@ -83,6 +83,22 @@ public class UserInfoRepository {
         return null;
     }
 
+    public ArrayList<String> getAllVitMedLogs (int userId){
+        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                        return (ArrayList<String>) userInfoDAO.getallVitMedRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+        }
+        return null;
+    }
+
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
             userInfoDAO.insert(userInfo);

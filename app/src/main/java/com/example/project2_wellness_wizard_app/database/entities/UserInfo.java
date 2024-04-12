@@ -25,6 +25,7 @@ public class UserInfo {
     private LocalDateTime date;
     private int userId;
 
+
     @Ignore
     public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
@@ -42,22 +43,15 @@ public class UserInfo {
         this.userId = userId;
         date = LocalDateTime.now();
     }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "userInfoID=" + userInfoID +
-                ", food='" + food + '\'' +
-                ", calories=" + calories +
-                ", vitMeds='" + vitMeds + '\'' +
-                ", timeOfDay='" + timeOfDay + '\'' +
-                ", water=" + water +
-                ", weight=" + weight +
-                ", date=" + date.toString() +
-                '}';
+    private UserInfo(String vitMeds, String timeOfDay,int userId){
+        this.vitMeds=vitMeds;
+        this.timeOfDay=timeOfDay;
+        this.userId=userId;
+        date = LocalDateTime.now();
     }
-
+    public static UserInfo vitMed(String vitMeds, String timeOfDay, int userId){;
+        return new UserInfo(vitMeds,timeOfDay,userId);
+    }
 
 
     @Override
