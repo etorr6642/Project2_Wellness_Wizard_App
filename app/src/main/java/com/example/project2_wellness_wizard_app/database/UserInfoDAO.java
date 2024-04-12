@@ -24,5 +24,6 @@ public interface UserInfoDAO {
     @Query(" SELECT vitMeds FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE vitMeds != '' AND userId = :userId ORDER BY date DESC")
     List<String> getallVitMedRecords(int userId);
 
-
+    @Query(" SELECT timeOfDay FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE timeOfDay != '' AND userId = :userId ORDER BY date DESC")
+    List<String> getallTimeOfDayRecords(int userId);
 }
