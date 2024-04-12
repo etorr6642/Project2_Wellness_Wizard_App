@@ -179,6 +179,22 @@ public class UserInfoRepository {
         return null;
     }
 
+    public ArrayList<String> getAllUsers (){
+        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                        return (ArrayList<String>) userDAO.getAllUsernames();
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all Users in the repository");
+        }
+        return null;
+    }
+
 
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{

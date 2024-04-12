@@ -51,7 +51,7 @@ public class AccountActivity extends AppCompatActivity {
         String password = repository.getPassword(loggedInUserId);
         binding.passwordDisplayTextView.setText(password);
     }
-    public static Intent accountIntentFactory(Context context){
+    public static Intent AccountIntentFactory(Context context){
         return new Intent(context, AccountActivity.class);
     }
 }
