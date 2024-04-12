@@ -23,14 +23,12 @@ import java.util.ArrayList;
 
 public class WaterActivity extends AppCompatActivity {
 
-    private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
     private ActivityWaterBinding binding;
     private UserInfoRepository repository;
     public static final String TAG = "WELLNESS_WIZARD";
     int mWater = 0;
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
-
 
     private int loggedInUserId =-1 ;
 

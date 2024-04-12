@@ -35,4 +35,10 @@ public interface UserDAO {
     @Query("SELECT * FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE isAdmin = true")
     LiveData<User> getUserByIsAdmin();
 
+    @Query("SELECT username FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE userId = :userId")
+    String getUsername(int userId);
+
+    @Query("SELECT password FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE userId = :userId")
+    String getPassword(int userId);
+
 }

@@ -31,19 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVED_INSTANCE_STATE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SAVED_INSTANCE_STATE_USERID_KEY";
 
     private ActivityMainBinding binding;
-    private ActivityLoginBinding loginBinding;
 
     private UserInfoRepository repository;
 
     public static final String TAG = "WELLNESS_WIZARD";
 
-
-    String mFood = "";
-    int mCalories = 0;
-    String vitMeds = "";
-    String mTimeOfDay = "";
-    int mWater = 0;
-    double mWeight = 0.0;
 
     private int loggedInUserId=-1;
     private User user;

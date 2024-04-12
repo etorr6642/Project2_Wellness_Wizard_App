@@ -147,6 +147,38 @@ public class UserInfoRepository {
       return null;
     }
 
+    public String getUsername(int userId){
+        Future<String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        return (String) userDAO.getUsername(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting User in the repository");
+        }
+        return null;
+    }
+
+    public String getPassword(int userId){
+        Future<String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        return (String) userDAO.getPassword(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting User in the repository");
+        }
+        return null;
+    }
+
 
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
