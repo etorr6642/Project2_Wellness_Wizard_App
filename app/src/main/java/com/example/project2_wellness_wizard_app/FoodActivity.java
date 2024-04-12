@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -72,18 +73,17 @@ public class FoodActivity extends AppCompatActivity {
             binding.foodDisplayTextView.setText(R.string.no_food_to_show_strack_tracking);
         }
 
-        StringBuilder sb1 = new StringBuilder();
-        for(String food : allFoodLogs){
-            sb1.append("Food Intake: "). append(food).append("\n");
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < allFoodLogs.size(); i++){
+            String food = allFoodLogs.get(i);
+            int calories = allCalorieLogs.get(i);
+
+            sb.append("Food Intake: "). append(food).append("\nCalories: ").append(calories).append("\nDate: ").append(date).append("\nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
-        StringBuilder sb2 = new StringBuilder();
-        for(Integer calorie : allCalorieLogs){
-            sb2.append("Calories: ").append(calorie).append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
-        }
+        binding.foodDisplayTextView.setText(sb.toString());
 
-        StringBuilder combined = sb1.append(sb2);
-        binding.foodDisplayTextView.setText(combined.toString());
     }
 
     private void insertFoodRecord(){
@@ -95,12 +95,22 @@ public class FoodActivity extends AppCompatActivity {
     private void getInfoFromDisplay(){
         mFood = binding.foodInputEditText.getText().toString();
 
+        if(mFood.isEmpty()){
+            toastMaker("Food should not be blank!");
+            return;
+        }
+
         try{
             mCalories = Integer.parseInt(binding.calorieInputEditText.getText().toString());
         }catch(NumberFormatException e)
         {
             Log.d(TAG, "Error reading value from Calories EditText.");
         }
+
+    }
+
+    private void toastMaker(String message) {
+        Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
 
     public static Intent FoodActivityIntentFactory(Context context){

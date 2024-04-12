@@ -27,6 +27,7 @@ public class UserInfoRepository {
         WellnessWizardDatabase db = WellnessWizardDatabase.getDatabase(application);
         this.userInfoDAO = db.userInfoDAO();
         this.userDAO =db.userDAO();
+        this.workoutDAO = db.workoutDAO();
         this.allLogs = (ArrayList<UserInfo>) this.userInfoDAO.getAllRecords();
     }
 
@@ -130,6 +131,22 @@ public class UserInfoRepository {
         }
         return null;
     }
+
+    public String getRandomWorkout(){
+        Future <String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return (String) workoutDAO.getRandomWorkout();
+            }
+        });
+      try{
+          return future.get();
+      }catch (InterruptedException | ExecutionException e){
+          Log.i(MainActivity.TAG, "Problem getting all workout in the repository.");
+      }
+      return null;
+    }
+
 
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
