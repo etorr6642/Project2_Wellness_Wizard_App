@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 
-import com.example.project2_wellness_wizard_app.database.UserInfoDAO;
+
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
-import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWaterBinding;
 
@@ -31,8 +29,6 @@ public class WaterActivity extends AppCompatActivity {
     private final LocalTime time = LocalTime.now();
 
     private int loggedInUserId =-1 ;
-
-
 
 
 
