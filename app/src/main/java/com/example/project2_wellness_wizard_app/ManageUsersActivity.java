@@ -82,6 +82,7 @@ public class ManageUsersActivity extends AppCompatActivity {
             for(String user: allUsers){
                 if (user.equals(username)){
                     repository.deleteByUsername(username);
+                    toastMaker("User was successfully deleted");
                     displayUsers();
                     flag = true;
                 }
