@@ -7,11 +7,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.databinding.ActivityViewVitMedBinding;

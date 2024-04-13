@@ -23,16 +23,21 @@ import com.example.project2_wellness_wizard_app.database.UserDAO;
 import com.example.project2_wellness_wizard_app.database.UserInfoDAO;
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
+
 import com.example.project2_wellness_wizard_app.databinding.ActivityAccountBinding;
-import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
 
 public class AccountActivity extends AppCompatActivity {
 
+    private UserInfoRepository repository;
+    public static final String TAG = "WELLNESS_WIZARD";
+
     private ActivityAccountBinding binding;
+
     private UserInfoRepository repository;
     private int loggedInUserId =-1;
     private int LOGGED_OUT =-1;
     private User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,15 @@ public class AccountActivity extends AppCompatActivity {
         binding = ActivityAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        repository = UserInfoRepository.getRepository(getApplication());
+
+        repository = UserInfoRepository.getRepository(getApplication()); //gives access to our bd
+        SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        loggedInUserId = sharedPreferences.getInt(getString(R.string.preference_userId_key),-1);
+
+        displayUsername();
+        displayPassword();
+
 
         LiveData<User> username = repository.getUserByUserId(loggedInUserId);
 
@@ -63,6 +76,7 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void showAlertDialog() {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(AccountActivity.this);
@@ -117,7 +131,18 @@ public class AccountActivity extends AppCompatActivity {
         return true;
     }
 
-    public static Intent accountIntentFactory(Context context){
+  
+    private void displayUsername(){
+        String username = repository.getUsername(loggedInUserId);
+        binding.usernameDisplayTextView.setText(username);
+    }
+
+    private void displayPassword(){
+        String password = repository.getPassword(loggedInUserId);
+        binding.passwordDisplayTextView.setText(password);
+    }
+    public static Intent AccountIntentFactory(Context context){
+
         return new Intent(context, AccountActivity.class);
     }
 }

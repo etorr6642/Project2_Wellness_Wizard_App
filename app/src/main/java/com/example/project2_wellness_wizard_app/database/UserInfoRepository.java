@@ -27,6 +27,7 @@ public class UserInfoRepository {
         WellnessWizardDatabase db = WellnessWizardDatabase.getDatabase(application);
         this.userInfoDAO = db.userInfoDAO();
         this.userDAO =db.userDAO();
+        this.workoutDAO = db.workoutDAO();
         this.allLogs = (ArrayList<UserInfo>) this.userInfoDAO.getAllRecords();
     }
 
@@ -78,10 +79,59 @@ public class UserInfoRepository {
         try{
             return future.get();
         }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
         }
         return null;
     }
+
+    public ArrayList<Double> getAllWeightLogs (int userId){
+        Future<ArrayList<Double>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Double>>() {
+                    @Override
+                    public ArrayList<Double> call() throws Exception {
+                        return (ArrayList<Double>) userInfoDAO.getAllWeightRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
+    public ArrayList<String> getAllFoodLogs (int userId){
+        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                        return (ArrayList<String>) userInfoDAO.getAllFoodRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
+    public ArrayList<Integer> getAllCalorieLogs (int userId){
+        Future<ArrayList<Integer>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<Integer>>() {
+                    @Override
+                    public ArrayList<Integer> call() throws Exception {
+                        return (ArrayList<Integer>) userInfoDAO.getAllCalorieRecords(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
 
     public ArrayList<String> getAllVitMedLogs (int userId){
         Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
@@ -89,6 +139,87 @@ public class UserInfoRepository {
                     @Override
                     public ArrayList<String> call() throws Exception {
                         return (ArrayList<String>) userInfoDAO.getallVitMedRecords(userId);
+                      try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+        }
+        return null;
+    }
+
+    public String getRandomWorkout(){
+        Future <String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return (String) workoutDAO.getRandomWorkout();
+            }
+        });
+      try{
+          return future.get();
+      }catch (InterruptedException | ExecutionException e){
+          Log.i(MainActivity.TAG, "Problem getting all workout in the repository.");
+      }
+      return null;
+    }
+
+    public String getUsername(int userId){
+        Future<String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        return (String) userDAO.getUsername(userId);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting User in the repository");
+        }
+        return null;
+    }
+
+    public String getPassword(int userId){
+        Future<String> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<String>() {
+                    @Override
+                    public String call() throws Exception {
+                        return (String) userDAO.getPassword(userId);
+
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+
+        }
+        return null;
+    }
+
+    public ArrayList<String> getallTimeOfDayLogs (int userId){
+   Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                      return (ArrayList<String>) userInfoDAO.getallTimeOfDayRecords(userId);
+                       }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+           Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+           }
+        return null;
+    }
+
+    public ArrayList<String> getAllUsers (){
+
+        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<ArrayList<String>>() {
+                    @Override
+                    public ArrayList<String> call() throws Exception {
+                        return (ArrayList<String>) userDAO.getAllUsernames();
                     }
                 });
         try{
@@ -99,21 +230,6 @@ public class UserInfoRepository {
         return null;
     }
 
-    public ArrayList<String> getallTimeOfDayLogs (int userId){
-        Future<ArrayList<String>> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
-                new Callable<ArrayList<String>>() {
-                    @Override
-                    public ArrayList<String> call() throws Exception {
-                        return (ArrayList<String>) userInfoDAO.getallTimeOfDayRecords(userId);
-                    }
-                });
-        try{
-            return future.get();
-        }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
-        }
-        return null;
-    }
 
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{

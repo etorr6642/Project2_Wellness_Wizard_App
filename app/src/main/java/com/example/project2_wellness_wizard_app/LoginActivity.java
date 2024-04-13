@@ -36,6 +36,14 @@ public class LoginActivity extends AppCompatActivity {
                 verifyUser();
             }
         });
+
+        binding.createNewAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = CreateAccountActivity.CreateAccountIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     private void verifyUser() {

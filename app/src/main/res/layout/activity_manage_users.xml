@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F0FD"
-    tools:context=".WaterActivity">
+    tools:context=".ManageUsersActivity">
 
     <TextView
         android:id="@+id/WellnessWizardTitleTextView"
@@ -24,11 +24,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/trackWeightILabelTextView"
-        android:layout_width="120dp"
+        android:id="@+id/manageUsersLabelTextView"
+        android:layout_width="180dp"
         android:layout_height="25dp"
         android:layout_marginTop="20dp"
-        android:text="@string/track_weight2"
+        android:text="@string/manage_users_label"
         android:textAlignment="center"
         android:textColor="#310486"
         android:textSize="20sp"
@@ -38,57 +38,43 @@
         app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
 
     <TextView
-        android:id="@+id/weightDisplayTextView"
+        android:id="@+id/usernamesDisplayTextView"
         android:layout_width="360dp"
         android:layout_height="200dp"
         android:layout_marginTop="40dp"
         android:padding="10dp"
-        android:text="@string/start_tracking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trackWeightILabelTextView" />
+        app:layout_constraintTop_toBottomOf="@id/manageUsersLabelTextView" />
 
     <EditText
-        android:id="@+id/weightInputEditText"
-        android:layout_width="200dp"
+        android:id="@+id/waterInputEditText"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:hint="@string/enter_weight"
-        android:inputType="number|numberDecimal"
+        android:hint="@string/enter_username_to_delete"
+        android:inputType="number"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/weightDisplayTextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lbLabelTextView"
-        app:layout_constraintEnd_toStartOf="@+id/lbLabelTextView" />
-
-    <TextView
-        android:id="@+id/lbLabelTextView"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="@string/lbs"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/addWeightButton"
-        app:layout_constraintTop_toBottomOf="@id/weightDisplayTextView" />
+        app:layout_constraintTop_toBottomOf="@id/usernamesDisplayTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/addWeightButton"
+        android:id="@+id/deleteUserButton"
         android:layout_width="260dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="250dp"
-        android:text="@string/add_weight"
+        android:text="@string/delete_user"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/weightInputEditText"
+        app:layout_constraintTop_toBottomOf="@id/waterInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/weightBackButton"
+        android:id="@+id/manageUsersBackButton"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -97,6 +83,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addWeightButton" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteUserButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

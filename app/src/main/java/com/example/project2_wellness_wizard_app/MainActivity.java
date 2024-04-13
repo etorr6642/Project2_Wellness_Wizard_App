@@ -10,17 +10,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
-import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,19 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private static final String SAVED_INSTANCE_STATE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SAVED_INSTANCE_STATE_USERID_KEY";
 
     private ActivityMainBinding binding;
-    private ActivityLoginBinding loginBinding;
 
     private UserInfoRepository repository;
 
     public static final String TAG = "WELLNESS_WIZARD";
 
-
-    String mFood = "";
-    int mCalories = 0;
-    String vitMeds = "";
-    String mTimeOfDay = "";
-    int mWater = 0;
-    double mWeight = 0.0;
 
     private int loggedInUserId=-1;
     private User user;
@@ -71,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = AccountActivity.accountIntentFactory((getApplicationContext()));
+                Intent intent = AccountActivity.AccountIntentFactory((getApplicationContext()));
                 startActivity(intent);
             }
         });

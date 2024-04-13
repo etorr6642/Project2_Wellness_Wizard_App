@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F0FD"
+    tools:context=".CreateAccountActivity">
+
+    <TextView
+        android:id="@+id/createYourAccountTextView"
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:layout_margin="16dip"
+        android:layout_marginBottom="24dip"
+        android:gravity="center"
+        android:text="@string/create_your_account"
+        android:textColor="#8143F8"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createUsernameLabelTextView"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/username2"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/createYourAccountTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/createUsernameInputEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:hint="@string/enter_username"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/createUsernameLabelTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/createPasswordLabelTextView"
+        android:layout_width="120dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/password2"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/createUsernameInputEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/createPasswordInputEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:hint="@string/enter_password"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/createPasswordLabelTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/confirmPasswordLabelTextView"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="@string/confirm_password"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/createPasswordInputEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/confirmPasswordInputEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:hint="@string/enter_password"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLabelTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="250dp"
+        android:text="@string/create_account"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/confirmPasswordInputEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/createAccountBackButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/back2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccountButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

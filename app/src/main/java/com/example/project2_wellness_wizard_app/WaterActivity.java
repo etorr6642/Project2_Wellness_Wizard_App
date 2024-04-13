@@ -9,11 +9,9 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 
-import com.example.project2_wellness_wizard_app.database.UserInfoDAO;
+
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
-import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWaterBinding;
 
@@ -23,7 +21,6 @@ import java.util.ArrayList;
 
 public class WaterActivity extends AppCompatActivity {
 
-    private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
     private ActivityWaterBinding binding;
     private UserInfoRepository repository;
     public static final String TAG = "WELLNESS_WIZARD";
@@ -31,10 +28,7 @@ public class WaterActivity extends AppCompatActivity {
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
 
-
     private int loggedInUserId =-1 ;
-
-
 
 
 
@@ -82,15 +76,14 @@ public class WaterActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for(Integer water: allLogs){
-            sb.append("Water Intake: ").append(water).append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
+            sb.append("Water Intake: ").append(water).append("mL").append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
         binding.waterDisplayTextView.setText(sb.toString());
     }
 
-    //TODO: FIX ERROR, grab userId from current user
     private void insertWaterRecord() {
-        UserInfo info = new UserInfo(mWater,loggedInUserId);
+        UserInfo info = UserInfo.Water(mWater,loggedInUserId);
         repository.insertUserInfo(info);
         updateDisplay();
     }
