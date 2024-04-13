@@ -36,7 +36,6 @@ public class ManageUsersActivity extends AppCompatActivity {
         binding.deleteUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayUsers();
                 getUserAndDelete();
                 displayUsers();
             }
@@ -68,6 +67,7 @@ public class ManageUsersActivity extends AppCompatActivity {
     }
 
     private void getUserAndDelete(){
+        boolean flag = false;
         String username = binding.usernameInputEditText.getText().toString();
 
         ArrayList<String> allUsers = repository.getAllUsers();
@@ -79,10 +79,12 @@ public class ManageUsersActivity extends AppCompatActivity {
             for(String user: allUsers){
                 if (user.equals(username)){
                     repository.deleteByUsername(username);
+                    displayUsers();
+                    flag = true;
                 }
-                else{
-                    Toast.makeText(this, "Input Valid Username.", Toast.LENGTH_SHORT).show();
-                }
+            }
+            if(!flag){
+                Toast.makeText(this, "Input Valid Username.", Toast.LENGTH_SHORT).show();
             }
         }
     }

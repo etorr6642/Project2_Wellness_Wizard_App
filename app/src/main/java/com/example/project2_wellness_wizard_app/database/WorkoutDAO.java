@@ -22,4 +22,7 @@ public interface WorkoutDAO {
 
     @Query("SELECT workout FROM " + WellnessWizardDatabase.WORKOUT_TABLE + " ORDER BY RANDOM() LIMIT 1")
     String getRandomWorkout();
+
+    @Query("DELETE FROM " + WellnessWizardDatabase.WORKOUT_TABLE+ " WHERE workoutId = :workoutId")
+    void deleteWorkout(int workoutId);
 }
