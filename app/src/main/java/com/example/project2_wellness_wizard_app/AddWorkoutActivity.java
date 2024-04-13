@@ -33,7 +33,6 @@ public class AddWorkoutActivity extends AppCompatActivity {
         binding.addWorkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getWorkoutFromDisplay();
                 addWorkout();
             }
         });
@@ -48,12 +47,17 @@ public class AddWorkoutActivity extends AppCompatActivity {
     }
 
     private void addWorkout(){
-        Workout workout = new Workout(mWorkout);
-        repository.addWorkout(workout);
-        toastMaker("Workout was successfully Added!");
-    }
-    private void getWorkoutFromDisplay(){
         mWorkout = binding.addWorkoutInputEditText.getText().toString();
+        Workout workout = new Workout(mWorkout);
+
+        if(mWorkout.isEmpty()){
+            toastMaker("Workout should not be blank.");
+            return;
+        }else{
+            repository.addWorkout(workout);
+            toastMaker("Workout was successfully Added!");
+        }
+
     }
     private void toastMaker(String message) {
         Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
