@@ -139,6 +139,8 @@ public class UserInfoRepository {
                     @Override
                     public ArrayList<String> call() throws Exception {
                         return (ArrayList<String>) userInfoDAO.getallVitMedRecords(userId);
+                    }
+                });
                       try{
             return future.get();
         }catch (InterruptedException|ExecutionException e){
