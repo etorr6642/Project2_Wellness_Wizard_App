@@ -44,7 +44,8 @@
             android:exported="false" />
         <activity
             android:name=".AccountActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Material3.DynamicColors.DayNight"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />

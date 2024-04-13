@@ -21,6 +21,12 @@ public interface UserInfoDAO {
     @Query(" SELECT water FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE water > 0 AND userId = :userId ORDER BY date DESC")
     List<Integer> getAllWaterRecords(int userId);
 
+    @Query(" SELECT vitMeds FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE vitMeds != '' AND userId = :userId ORDER BY date DESC")
+    List<String> getallVitMedRecords(int userId);
+
+    @Query(" SELECT timeOfDay FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE timeOfDay != '' AND userId = :userId ORDER BY date DESC")
+    List<String> getallTimeOfDayRecords(int userId);
+  
     @Query(" SELECT weight FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE weight > 0 AND userId = :userId ORDER BY date DESC")
     List<Double> getAllWeightRecords(int userId);
 
@@ -29,8 +35,5 @@ public interface UserInfoDAO {
 
     @Query(" SELECT calories FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE calories > 0 AND userId = :userId ORDER BY date DESC")
     List<Integer> getAllCalorieRecords(int userId);
-
-    @Query(" SELECT vitMeds FROM " + WellnessWizardDatabase.USER_INFO_TABLE + " WHERE vitMeds != NULL AND userId = :userId ORDER BY date DESC")
-    List<String> getAllVitMedsRecords(int userId);
 
 }

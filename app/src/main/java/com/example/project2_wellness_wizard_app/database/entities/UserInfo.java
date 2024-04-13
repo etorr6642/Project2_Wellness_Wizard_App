@@ -25,6 +25,10 @@ public class UserInfo {
     private LocalDateTime date;
     private int userId;
 
+
+
+    @Ignore
+
     public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
         this.calories = calories;
@@ -41,6 +45,16 @@ public class UserInfo {
         this.userId = userId;
         date = LocalDateTime.now();
     }
+
+    private UserInfo(String vitMeds, String timeOfDay,int userId){
+        this.vitMeds=vitMeds;
+        this.timeOfDay=timeOfDay;
+        this.userId=userId;
+        date = LocalDateTime.now();
+    }
+    public static UserInfo vitMed(String vitMeds, String timeOfDay, int userId){;
+        return new UserInfo(vitMeds,timeOfDay,userId);
+
 
     public static UserInfo Water(int water, int userId){
         return new UserInfo(water, userId);
@@ -80,8 +94,8 @@ public class UserInfo {
                 ", weight=" + weight +
                 ", date=" + date.toString() +
                 '}';
-    }
 
+    }
 
 
     @Override
