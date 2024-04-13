@@ -69,7 +69,11 @@
     <string name="enter_password">Enter Password</string>
     <string name="confirm_password">Confirm Password:</string>
     <string name="create_account">Create Account</string>
+
     <string name="add_workout3">Add Workout</string>
     <string name="enter_new_workout_here">Enter New Workout Here</string>
     <string name="add_workout2">Add Workout</string>
+
+    <string name="view_vitamin_medication_list">View Vitamin/Medication List</string>
+
 </resources>

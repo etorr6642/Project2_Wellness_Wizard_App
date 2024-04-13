@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,11 +69,20 @@ public class AddVitMedActivity extends AppCompatActivity {
             }
         });
 
+        binding.viewVitMedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = ViewVitMedActivity.ViewVitMedActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void insertVitMedRecord() {
         UserInfo info = UserInfo.vitMed(vitMeds, mTimeOfDay, loggedInUserId);
         repository.insertUserInfo(info);
+        Toast.makeText(this, "Vitamin/Medication added!", Toast.LENGTH_SHORT).show();
 
     }
 

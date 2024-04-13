@@ -89,25 +89,43 @@
         android:id="@+id/addVitMedButton2"
         android:layout_width="260dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
         android:text="@string/add"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeEditText" />
+
+    <Button
+        android:id="@+id/viewVitMedButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/view_vitamin_medication_list"
+        android:textAlignment="center"
+
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addVitMedButton2" />
 
     <Button
         android:id="@+id/addVitMedBackButton"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="@string/back2"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addVitMedButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/viewVitMedButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

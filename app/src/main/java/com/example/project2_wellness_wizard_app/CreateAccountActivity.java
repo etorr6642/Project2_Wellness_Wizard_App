@@ -57,7 +57,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private boolean checkPassword() {
         String confirmPassword = binding.confirmPasswordInputEditText.getText().toString();
         if(!password.equals(confirmPassword)){
-            Toast.makeText(this,"Passwords do not match",Toast.LENGTH_SHORT).show();
+            toastMaker("Passwords do not match");
             getInformationFromDisplay();
             return false;
         }else
@@ -69,7 +69,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         ArrayList<String> allUserNames = repository.getAllUsers();
         for(int i = 0; i<allUserNames.size();i++){
             if(username.equals(allUserNames.get(i))){
-                Toast.makeText(this, "Username is already taken", Toast.LENGTH_SHORT).show();
+                toastMaker("Username is already taken");
                 checkUserName = false;
                 getInformationFromDisplay();
             }
@@ -80,8 +80,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     private void addUserToDatabase() {
         User user = new User(username,password);
         repository.insertUser(user);
-        Toast.makeText(this, "Account successfully created! ", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Log in with your new username and password",Toast.LENGTH_SHORT).show();
+        toastMaker("Account successfully created!");
+        toastMaker("Log in with your new username and password");
     }
 
     private void getInformationFromDisplay() {
@@ -89,6 +89,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         password = binding.createPasswordInputEditText.getText().toString();
     }
 
+    private void toastMaker(String message) {
+        Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
+    }
     public static Intent CreateAccountIntentFactory(Context context){
         return new Intent(context, CreateAccountActivity.class);
     }
