@@ -44,5 +44,7 @@ public interface UserDAO {
     @Query("SELECT username FROM " + WellnessWizardDatabase.USER_TABLE + " ORDER by username")
     List<String> getAllUsernames();
 
+    @Query("DELETE FROM "+ WellnessWizardDatabase.USER_TABLE + " WHERE username = :username")
+    void deleteByUsername(String username);
 
 }

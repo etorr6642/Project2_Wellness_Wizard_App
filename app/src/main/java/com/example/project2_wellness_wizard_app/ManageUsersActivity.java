@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,8 +36,8 @@ public class ManageUsersActivity extends AppCompatActivity {
         binding.deleteUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: create method to get information from display
-                //TODO: create a method delete user
+                displayUsers();
+                getUserAndDelete();
                 displayUsers();
             }
         });
@@ -65,6 +66,27 @@ public class ManageUsersActivity extends AppCompatActivity {
         binding.usernamesDisplayTextView.setText(sb.toString());
 
     }
+
+    private void getUserAndDelete(){
+        String username = binding.usernameInputEditText.getText().toString();
+
+        ArrayList<String> allUsers = repository.getAllUsers();
+
+        if(username.isEmpty()){
+            Toast.makeText(this, "Username should not be blank.", Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            for(String user: allUsers){
+                if (user.equals(username)){
+                    repository.deleteByUsername(username);
+                }
+                else{
+                    Toast.makeText(this, "Input Valid Username.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
     public static Intent ManageUsersActivityIntentFactory(Context context){
         return new Intent(context, ManageUsersActivity.class);
     }
