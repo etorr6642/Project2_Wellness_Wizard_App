@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import com.example.project2_wellness_wizard_app.MainActivity;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
+import com.example.project2_wellness_wizard_app.database.entities.Workout;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -243,6 +244,12 @@ public class UserInfoRepository {
             workoutDAO.deleteWorkout(workoutId);
         });
     }
+    public void addWorkout(Workout workout){
+        WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
+            workoutDAO.insert(workout);
+        });
+    }
+
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
             userInfoDAO.insert(userInfo);

@@ -7,4 +7,73 @@
     android:layout_height="match_parent"
     tools:context=".AddWorkoutActivity">
 
+    <TextView
+        android:id="@+id/WellnessWizardTitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:shadowColor="#6417F8"
+        android:text="@string/wellness_wizard"
+        android:textAlignment="center"
+        android:textColor="#8143F8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addWorkoutLabelTextView"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_workout2"
+        android:textAlignment="center"
+        android:textColor="#310486"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WellnessWizardTitleTextView" />
+
+    <EditText
+        android:id="@+id/addWorkoutInputEditText"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:hint="@string/enter_new_workout_here"
+        android:textSize="20sp"
+        android:gravity="center|bottom"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addWorkoutLabelTextView"/>
+
+    <Button
+        android:id="@+id/addWorkoutButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="250dp"
+        android:text="@string/add_workout3"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/addWorkoutInputEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addWorkoutBackButton"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/back2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addWorkoutButton" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
