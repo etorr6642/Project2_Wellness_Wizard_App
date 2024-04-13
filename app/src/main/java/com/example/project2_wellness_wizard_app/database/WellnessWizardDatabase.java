@@ -76,7 +76,7 @@ public abstract class WellnessWizardDatabase extends RoomDatabase {
             super.onCreate(db);
             databaseWriteExecutor.execute(() -> {
                 WorkoutDAO dao = INSTANCE.workoutDAO();
-                //dao.deleteALlWorkout();
+                dao.deleteALlWorkout();
 
                 Workout Cardio = new Workout( "==CARDIO==\n"+ "Jumping Jacks: 30 seconds\n" + "High knees: Bring knees up high for 30 seconds\n" + "Burpees: Perform 10 burpees\n" + "Repeat 3 times.\n");
                 dao.insert(Cardio);

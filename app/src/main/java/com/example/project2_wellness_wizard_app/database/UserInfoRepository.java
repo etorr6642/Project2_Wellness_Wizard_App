@@ -232,7 +232,17 @@ public class UserInfoRepository {
         return null;
     }
 
+    public void deleteByUsername(String username){
+        WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
+            userDAO.deleteByUsername(username);
+        });
+    }
 
+    public void deleteWorkout(int workoutId){
+        WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
+            workoutDAO.deleteWorkout(workoutId);
+        });
+    }
     public void insertUserInfo(UserInfo userInfo){
         WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
             userInfoDAO.insert(userInfo);
