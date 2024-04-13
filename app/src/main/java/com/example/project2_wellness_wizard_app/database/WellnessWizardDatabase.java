@@ -60,10 +60,10 @@ public abstract class WellnessWizardDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 UserDAO dao = INSTANCE.userDAO();
                 dao.deleteAll();
-                User admin = new User("admin1", "admin1");
+                User admin = new User("admin2", "admin2");
                 admin.setAdmin(true);
                 dao.insert(admin);
-                User testUser1 = new User("testUser1", "testUser1");
+                User testUser1 = new User("testuser1", "testuser1");
                 dao.insert(testUser1);
             });
         }
