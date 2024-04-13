@@ -27,7 +27,7 @@ public class UserInfo {
 
 
 
-    @Ignore
+    //@Ignore
 
     public UserInfo(String food, int calories, String vitMeds, String timeOfDay, int water, double weight, int userId) { //letting db create id
         this.food = food;
@@ -52,8 +52,10 @@ public class UserInfo {
         this.userId=userId;
         date = LocalDateTime.now();
     }
-    public static UserInfo vitMed(String vitMeds, String timeOfDay, int userId){;
-        return new UserInfo(vitMeds,timeOfDay,userId);
+    public static UserInfo vitMed(String vitMeds, String timeOfDay, int userId) {
+        ;
+        return new UserInfo(vitMeds, timeOfDay, userId);
+    }
 
 
     public static UserInfo Water(int water, int userId){

@@ -33,7 +33,6 @@ public class AccountActivity extends AppCompatActivity {
 
     private ActivityAccountBinding binding;
 
-    private UserInfoRepository repository;
     private int loggedInUserId =-1;
     private int LOGGED_OUT =-1;
     private User user;
@@ -57,9 +56,6 @@ public class AccountActivity extends AppCompatActivity {
 
         LiveData<User> username = repository.getUserByUserId(loggedInUserId);
 
-        SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),
-                Context.MODE_PRIVATE);
-        loggedInUserId = sharedPreferences.getInt(getString(R.string.preference_userId_key),LOGGED_OUT);
 
 
         binding.deleteAccountButton.setOnClickListener(new View.OnClickListener() {

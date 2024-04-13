@@ -139,12 +139,14 @@ public class UserInfoRepository {
                     @Override
                     public ArrayList<String> call() throws Exception {
                         return (ArrayList<String>) userInfoDAO.getallVitMedRecords(userId);
-                      try{
-            return future.get();
-        }catch (InterruptedException|ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
-        }
-        return null;
+                    }
+                });
+                try{
+                    return future.get();
+                }catch (InterruptedException|ExecutionException e){
+                    Log.i(MainActivity.TAG, "Problem when getting all UserInfo in the repository");
+                }
+            return null;
     }
 
     public String getRandomWorkout(){
