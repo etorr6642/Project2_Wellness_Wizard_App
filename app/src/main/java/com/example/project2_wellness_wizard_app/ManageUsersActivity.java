@@ -1,6 +1,7 @@
 package com.example.project2_wellness_wizard_app;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
@@ -39,7 +41,7 @@ public class ManageUsersActivity extends AppCompatActivity {
         binding.deleteUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUserAndDelete();
+                showDeleteDialog();
                 displayUsers();
             }
         });
@@ -93,6 +95,27 @@ public class ManageUsersActivity extends AppCompatActivity {
         }
     }
 
+    private void showDeleteDialog(){
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(ManageUsersActivity.this);
+        final AlertDialog alertDialog = alertBuilder.create();
+
+        alertBuilder.setMessage("Are you sure you want to delete this user?\n");
+
+        alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                getUserAndDelete();
+            }
+        });
+
+        alertBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+        alertBuilder.create().show();
+    }
     private void toastMaker(String message) {
         Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
     }
