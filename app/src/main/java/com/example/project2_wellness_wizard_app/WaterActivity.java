@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
+import com.example.project2_wellness_wizard_app.database.entities.Workout;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWaterBinding;
 
 import java.time.LocalDate;
@@ -89,12 +91,29 @@ public class WaterActivity extends AppCompatActivity {
     }
 
     private void getInformationFromDisplay() {
+        if(!checkWater()){
+            toastMaker("Water should not be blank.");
+            return;
+        }
+
         try{
             mWater = Integer.parseInt(binding.waterInputEditText.getText().toString());
         }catch(NumberFormatException e)
         {
             Log.d(TAG, "Error reading value from Water edit text.");
         }
+    }
+
+    private boolean checkWater(){
+        String water = binding.waterInputEditText.getText().toString();
+        if(!water.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private void toastMaker(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     public static Intent WaterActivityIntentFactory(Context context){
