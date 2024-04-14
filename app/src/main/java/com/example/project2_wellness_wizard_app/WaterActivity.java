@@ -98,6 +98,7 @@ public class WaterActivity extends AppCompatActivity {
 
         try{
             mWater = Integer.parseInt(binding.waterInputEditText.getText().toString());
+            toastMaker("Water added");
         }catch(NumberFormatException e)
         {
             Log.d(TAG, "Error reading value from Water edit text.");

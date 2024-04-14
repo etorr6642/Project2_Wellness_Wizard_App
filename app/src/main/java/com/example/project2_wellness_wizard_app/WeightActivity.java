@@ -93,6 +93,7 @@ public class WeightActivity extends AppCompatActivity {
 
         try{
             mWeight = Double.parseDouble(binding.weightInputEditText.getText().toString());
+            toastMaker("Weight added");
         }catch(NumberFormatException e)
         {
             Log.d(TAG,"Error reading value from Weight EditText.");
