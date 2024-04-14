@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -85,6 +86,11 @@ public class WeightActivity extends AppCompatActivity {
     }
 
     private void getInfoFromDisplay(){
+        if(!checkWeight()){
+            toastMaker("Weight should not be blank.");
+            return;
+        }
+
         try{
             mWeight = Double.parseDouble(binding.weightInputEditText.getText().toString());
         }catch(NumberFormatException e)
@@ -93,6 +99,18 @@ public class WeightActivity extends AppCompatActivity {
         }
     }
 
+    private boolean checkWeight(){
+        String weight = binding.weightInputEditText.getText().toString();
+        if(!weight.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private void toastMaker(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
     public static Intent WeightActivityIntentFactory(Context context){
         return new Intent(context, WeightActivity.class);
     }
