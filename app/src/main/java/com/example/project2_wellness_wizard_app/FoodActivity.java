@@ -50,8 +50,13 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInfoFromDisplay();
-                insertFoodRecord();
-                updateFoodDisplay();
+                if(checkFood()&checkCalories()){
+                    insertFoodRecord();
+                    updateFoodDisplay();
+                }else{
+                    getInfoFromDisplay();
+                }
+
             }
         });
 
@@ -89,16 +94,12 @@ public class FoodActivity extends AppCompatActivity {
     private void insertFoodRecord(){
         UserInfo info = UserInfo.Food(mFood, mCalories, loggedInUserId);
         repository.insertUserInfo(info);
+        toastMaker("Food added");
         updateFoodDisplay();
     }
 
     private void getInfoFromDisplay(){
         mFood = binding.foodInputEditText.getText().toString();
-
-        if(mFood.isEmpty()){
-            toastMaker("Food should not be blank!");
-            return;
-        }
 
         try{
             mCalories = Integer.parseInt(binding.calorieInputEditText.getText().toString());
@@ -107,6 +108,26 @@ public class FoodActivity extends AppCompatActivity {
             Log.d(TAG, "Error reading value from Calories EditText.");
         }
 
+    }
+
+    private boolean checkFood(){
+        String checkTime = binding.foodInputEditText.getText().toString();
+
+        if(checkTime.isEmpty()){
+            toastMaker("Enter data for Food");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkCalories(){
+        String checkName = binding.calorieInputEditText.getText().toString();
+
+        if(checkName.isEmpty()){
+            toastMaker("Enter data for Calories");
+            return false;
+        }
+        return true;
     }
 
     private void toastMaker(String message) {

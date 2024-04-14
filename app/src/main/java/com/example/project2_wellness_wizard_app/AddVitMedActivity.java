@@ -57,7 +57,13 @@ public class AddVitMedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInformationFromDisplay();
-                insertVitMedRecord();
+                if(checkName()&checkTime()){
+                    insertVitMedRecord();
+                }else{
+                    getInformationFromDisplay();
+                }
+
+
 
             }
         });
@@ -82,8 +88,28 @@ public class AddVitMedActivity extends AppCompatActivity {
     private void insertVitMedRecord() {
         UserInfo info = UserInfo.vitMed(vitMeds, mTimeOfDay, loggedInUserId);
         repository.insertUserInfo(info);
-        Toast.makeText(this, "Vitamin/Medication added!", Toast.LENGTH_SHORT).show();
+        toastMaker("Vitamin/Medication added!");
 
+    }
+
+    private boolean checkTime(){
+        String checkTime = binding.timeEditText.getText().toString();
+
+        if(checkTime.isEmpty()){
+            toastMaker("Enter data for Time");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkName(){
+        String checkName = binding.nameEditText.getText().toString();
+
+        if(checkName.isEmpty()){
+            toastMaker("Enter data for Name");
+            return false;
+        }
+       return true;
     }
 
     private void getInformationFromDisplay() {
@@ -91,6 +117,11 @@ public class AddVitMedActivity extends AppCompatActivity {
         mTimeOfDay=binding.timeEditText.getText().toString();
 
     }
+
+    private void toastMaker(String message) {
+        Toast.makeText(this, message,Toast.LENGTH_SHORT).show();
+    }
+
     public static Intent AddVitMedActivityIntentFactory(Context context){
         return new Intent(context, AddVitMedActivity.class);
     }
