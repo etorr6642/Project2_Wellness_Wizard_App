@@ -31,6 +31,8 @@ import java.util.ArrayList;
 
 public class AccountActivity extends AppCompatActivity {
 
+    private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
+
     private UserInfoRepository repository;
     public static final String TAG = "WELLNESS_WIZARD";
 
@@ -88,11 +90,9 @@ public class AccountActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 //TODO: delete user information from database
                 getUserAndDelete();
+                logout();
                 Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
                 startActivity(intent);
-
-
-
             }
         });
 
@@ -168,6 +168,22 @@ public class AccountActivity extends AppCompatActivity {
     private void displayPassword(){
         String password = repository.getPassword(loggedInUserId);
         binding.passwordDisplayTextView.setText(password);
+    }
+
+    private void logout() {
+        loggedInUserId=LOGGED_OUT;
+        updateSharedPreference();
+        getIntent().putExtra(MAIN_ACTIVITY_USER_ID, loggedInUserId);
+
+        startActivity(LoginActivity.loginIntentFactory(getApplicationContext()));
+    }
+
+    private void updateSharedPreference() {
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor sharedPrefEditor = sharedPreferences.edit();
+        sharedPrefEditor.putInt(getString(R.string.preference_userId_key),loggedInUserId);
+        sharedPrefEditor.apply();
     }
     public static Intent AccountIntentFactory(Context context){
 
