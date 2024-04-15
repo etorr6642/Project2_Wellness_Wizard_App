@@ -46,8 +46,13 @@ public class WaterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getInformationFromDisplay();
-                insertWaterRecord();
+                if(checkWater()){
+                    insertWaterRecord();
+                }else{
+                    getInformationFromDisplay();
+                }
                 updateDisplay();
+                binding.waterInputEditText.setSelection(0);
             }
         });
 
@@ -72,6 +77,8 @@ public class WaterActivity extends AppCompatActivity {
         for(Integer water: allLogs){
             sb.append("Water Intake: ").append(water).append("mL").append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
+
+
         binding.waterDisplayTextView.setText(sb.toString());
     }
 
