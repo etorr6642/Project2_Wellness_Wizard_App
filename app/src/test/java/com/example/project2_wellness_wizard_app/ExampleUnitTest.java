@@ -19,6 +19,9 @@ public class ExampleUnitTest {
     String defaultUsername ="defaultUsername";
     String defaultPassword = "defaultPassword";
 
+    String password = "defaultPassword";
+    User user3 = new User ("Victoria","glitter123");
+
     @Before
     public void setup(){
         user1 = new User(defaultUsername,defaultPassword);
@@ -45,4 +48,19 @@ public class ExampleUnitTest {
     public void getUser_test(){
         assertEquals(defaultUsername,user1.getUsername());
     }
+
+    @Test
+    public void getPassword_test(){
+        assertNotEquals(user1.getPassword(), user3.getPassword());
+        assertEquals(user1.getPassword(), password);
+    }
+
+    @Test
+    public void setPassword_test(){
+        assertEquals(user1.getPassword(), password);
+        user1.setPassword("glitter123");
+        assertEquals(user1.getPassword(), user3.getPassword());
+        assertNotEquals(user1.getPassword(), password);
+    }
+
 }
