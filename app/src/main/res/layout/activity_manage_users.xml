@@ -72,6 +72,18 @@
         app:layout_constraintTop_toBottomOf="@id/usernameInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/userMenuButton"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="250dp"
+        android:text="@string/user_menu2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/deleteUserButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/manageUsersBackButton"
@@ -83,6 +95,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteUserButton" />
+        app:layout_constraintTop_toBottomOf="@+id/userMenuButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
