@@ -2,15 +2,11 @@ package com.example.project2_wellness_wizard_app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
-
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding;
@@ -18,9 +14,7 @@ import com.example.project2_wellness_wizard_app.databinding.ActivityLoginBinding
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
-
     private UserInfoRepository repository;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

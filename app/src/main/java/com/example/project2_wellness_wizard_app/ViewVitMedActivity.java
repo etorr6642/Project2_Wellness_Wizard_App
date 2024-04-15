@@ -6,19 +6,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.databinding.ActivityViewVitMedBinding;
-
 import java.util.ArrayList;
 
 public class ViewVitMedActivity extends AppCompatActivity {
 
     String vitMeds = "";
     String mTimeOfDay = "";
-
     UserInfoRepository repository;
 
     private ActivityViewVitMedBinding binding;
@@ -62,14 +58,15 @@ public class ViewVitMedActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for(int i =0;i<allVitMedLogs.size();i++){
-            String vitMed = allVitMedLogs.get(i);
-            String timeOfDay = allTimeOfDayLogs.get(i);
+            vitMeds = allVitMedLogs.get(i);
+            mTimeOfDay = allTimeOfDayLogs.get(i);
 
-            sb.append("Vitamin/Meds: ").append(vitMed).append("\nTime of Day: ").append(timeOfDay).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
+            sb.append("Vitamin/Meds: ").append(vitMeds).append("\nTime of Day: ").append(mTimeOfDay).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
 
         binding.vitMedDisplayTextView.setText(sb.toString());
     }
+
     public static Intent ViewVitMedActivityIntentFactory(Context context){
         return new Intent(context, ViewVitMedActivity.class);
     }

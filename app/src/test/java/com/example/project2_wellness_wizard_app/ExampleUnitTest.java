@@ -36,7 +36,6 @@ public class ExampleUnitTest {
     @Test
     public void user_test(){
         User user2 = null;
-        assertNull(user2);
         user2 = new User("Eddie", "awesome");
         assertNotNull(user2);
         assertNotEquals(user1,user2);

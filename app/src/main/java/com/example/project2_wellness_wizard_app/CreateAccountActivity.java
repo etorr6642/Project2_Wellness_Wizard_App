@@ -28,7 +28,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         binding = ActivityCreateAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //TODO: binding.createAccountButton
         repository=UserInfoRepository.getRepository(getApplication());
         binding.createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override

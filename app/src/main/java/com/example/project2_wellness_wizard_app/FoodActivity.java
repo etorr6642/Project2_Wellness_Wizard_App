@@ -8,13 +8,10 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityFoodBinding;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -60,7 +57,6 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
-
         binding.foodBackButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -86,9 +82,7 @@ public class FoodActivity extends AppCompatActivity {
 
             sb.append("Food Intake: "). append(food).append("\nCalories: ").append(calories).append("\nDate: ").append(date).append("\nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
-
         binding.foodDisplayTextView.setText(sb.toString());
-
     }
 
     private void insertFoodRecord(){
@@ -107,7 +101,6 @@ public class FoodActivity extends AppCompatActivity {
         {
             Log.d(TAG, "Error reading value from Calories EditText.");
         }
-
     }
 
     private boolean checkFood(){

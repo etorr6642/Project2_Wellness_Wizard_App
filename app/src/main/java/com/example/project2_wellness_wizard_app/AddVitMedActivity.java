@@ -4,39 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
-import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityAddVitMedBinding;
-import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
 
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class AddVitMedActivity extends AppCompatActivity {
 
     String vitMeds = "";
     String mTimeOfDay = "";
-
     private ActivityAddVitMedBinding binding;
-
     private UserInfoRepository repository;
-
-    final LocalDate date = LocalDate.now();
-    final LocalTime time = LocalTime.now();
-    UserInfo userInfo;
-
     int loggedInUserId = -1;
 
     @Override
@@ -44,7 +25,6 @@ public class AddVitMedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddVitMedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
 
         repository = UserInfoRepository.getRepository(getApplication());
 
@@ -62,9 +42,6 @@ public class AddVitMedActivity extends AppCompatActivity {
                 }else{
                     getInformationFromDisplay();
                 }
-
-
-
             }
         });
         binding.addVitMedBackButton.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +59,12 @@ public class AddVitMedActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     private void insertVitMedRecord() {
         UserInfo info = UserInfo.vitMed(vitMeds, mTimeOfDay, loggedInUserId);
         repository.insertUserInfo(info);
         toastMaker("Vitamin/Medication added!");
-
     }
 
     private boolean checkTime(){

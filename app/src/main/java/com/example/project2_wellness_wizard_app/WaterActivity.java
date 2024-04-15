@@ -8,15 +8,10 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
-import com.example.project2_wellness_wizard_app.database.entities.Workout;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWaterBinding;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -29,10 +24,7 @@ public class WaterActivity extends AppCompatActivity {
     int mWater = 0;
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
-
     private int loggedInUserId =-1 ;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +72,6 @@ public class WaterActivity extends AppCompatActivity {
         for(Integer water: allLogs){
             sb.append("Water Intake: ").append(water).append("mL").append("     \nDate: ").append(date).append("      \nTime: ").append(time).append("\n=-=-=-=-=-=-=-=-=-=-=-\n");
         }
-
         binding.waterDisplayTextView.setText(sb.toString());
     }
 
@@ -95,7 +86,6 @@ public class WaterActivity extends AppCompatActivity {
             toastMaker("Water should not be blank.");
             return;
         }
-
         try{
             mWater = Integer.parseInt(binding.waterInputEditText.getText().toString());
             toastMaker("Water added");
@@ -107,11 +97,7 @@ public class WaterActivity extends AppCompatActivity {
 
     private boolean checkWater(){
         String water = binding.waterInputEditText.getText().toString();
-        if(!water.isEmpty()){
-            return true;
-        }else{
-            return false;
-        }
+        return !water.isEmpty();
     }
     private void toastMaker(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

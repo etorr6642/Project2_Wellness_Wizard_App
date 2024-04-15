@@ -10,36 +10,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.LiveData;
-
-import com.example.project2_wellness_wizard_app.database.UserDAO;
-import com.example.project2_wellness_wizard_app.database.UserInfoDAO;
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
-
 import com.example.project2_wellness_wizard_app.databinding.ActivityAccountBinding;
-
 import java.util.ArrayList;
 
 public class AccountActivity extends AppCompatActivity {
 
     private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
-
     private UserInfoRepository repository;
-    public static final String TAG = "WELLNESS_WIZARD";
-
     private ActivityAccountBinding binding;
-
     private int loggedInUserId =-1;
-    private int LOGGED_OUT =-1;
+    private final int LOGGED_OUT =-1;
     private User user;
 
 
@@ -49,7 +34,6 @@ public class AccountActivity extends AppCompatActivity {
         binding = ActivityAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         repository = UserInfoRepository.getRepository(getApplication()); //gives access to our bd
         SharedPreferences sharedPreferences =getSharedPreferences(getString(R.string.preference_file_key),
                 Context.MODE_PRIVATE);
@@ -57,11 +41,6 @@ public class AccountActivity extends AppCompatActivity {
 
         displayUsername();
         displayPassword();
-
-
-        LiveData<User> username = repository.getUserByUserId(loggedInUserId);
-
-
 
         binding.deleteAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +67,6 @@ public class AccountActivity extends AppCompatActivity {
         alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //TODO: delete user information from database
                 getUserAndDelete();
                 logout();
                 Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());

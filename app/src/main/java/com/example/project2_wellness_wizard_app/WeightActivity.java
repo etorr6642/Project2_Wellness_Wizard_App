@@ -8,13 +8,10 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWeightBinding;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -27,8 +24,6 @@ public class WeightActivity extends AppCompatActivity {
     double mWeight = 0.0;
     private final LocalDate date = LocalDate.now();
     private final LocalTime time = LocalTime.now();
-
-
     private int loggedInUserId =-1 ;
 
     @Override
@@ -102,11 +97,7 @@ public class WeightActivity extends AppCompatActivity {
 
     private boolean checkWeight(){
         String weight = binding.weightInputEditText.getText().toString();
-        if(!weight.isEmpty()){
-            return true;
-        }else{
-            return false;
-        }
+        return !weight.isEmpty();
     }
 
     private void toastMaker(String message){

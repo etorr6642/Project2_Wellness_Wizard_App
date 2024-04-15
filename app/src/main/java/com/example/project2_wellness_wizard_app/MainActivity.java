@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
 import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
@@ -22,21 +20,13 @@ import com.example.project2_wellness_wizard_app.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private static final String MAIN_ACTIVITY_USER_ID = ".com.example.project2_wellness_wizard_app.MAIN_ACTIVITY_USER_ID";
-    static final String SHARED_PREFERENCE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SHARED_PREFERENCE_USERID_KEY";
-
     private static final int LOGGED_OUT =-1;
     private static final String SAVED_INSTANCE_STATE_USERID_KEY = ".com.example.project2_wellness_wizard_app.SAVED_INSTANCE_STATE_USERID_KEY";
-
     private ActivityMainBinding binding;
-
     private UserInfoRepository repository;
-
     public static final String TAG = "WELLNESS_WIZARD";
-
-
     private int loggedInUserId=-1;
     private User user;
-
 
 
     @Override
@@ -48,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         repository = UserInfoRepository.getRepository(getApplication());
         
         loginUser(savedInstanceState);
-
 
         if(loggedInUserId==-1){
             Intent intent = LoginActivity.loginIntentFactory(getApplicationContext());
@@ -158,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     @Override
@@ -213,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         alertBuilder.create().show();
-
     }
 
     private void logout() {
@@ -237,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MAIN_ACTIVITY_USER_ID, userId);
         return intent;
     }
+
     public static Intent MainActivityIntentFactory(Context context){
         return new Intent(context, MainActivity.class);
     }

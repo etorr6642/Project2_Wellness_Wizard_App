@@ -1,14 +1,10 @@
 package com.example.project2_wellness_wizard_app;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.databinding.ActivityWorkoutBinding;
 
@@ -29,7 +25,6 @@ public class WorkoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 displayWorkout();
-                //showAlertDialog();
             }
         });
 
@@ -49,31 +44,6 @@ public class WorkoutActivity extends AppCompatActivity {
         sb.append(workout).append("\n");
 
         binding.workoutDisplayTextView.setText(sb.toString());
-
-    }
-
-    private void showAlertDialog() {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(WorkoutActivity.this);
-        final AlertDialog alertDialog = alertBuilder.create();
-
-        alertBuilder.setTitle("Would you like to generate a new Workout?");
-
-        alertBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                displayWorkout();
-            }
-        });
-
-        alertBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                alertDialog.dismiss();
-            }
-        });
-
-        alertBuilder.create().show();
-
     }
 
     public static Intent WorkoutActivityIntentFactory(Context context){
