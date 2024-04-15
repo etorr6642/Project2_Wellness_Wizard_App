@@ -37,6 +37,14 @@ public class AddWorkoutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.userMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
     }
 
     private void addWorkout(){
