@@ -45,4 +45,31 @@ public class ExampleUnitTest {
     public void getUser_test(){
         assertEquals(defaultUsername,user1.getUsername());
     }
+
+    @Test
+    public void getPassword_test(){
+        assertEquals(user1.getPassword(), defaultPassword);
+    }
+
+    @Test
+    public void setPassword_test(){
+        assertEquals(user1.getPassword(), defaultPassword);
+        user1.setPassword("glitter123");
+        assertNotEquals(user1.getPassword(), defaultPassword);
+    }
+
+    @Test
+    public void getUsername_test()
+    {
+        assertEquals(user1.getUsername(), defaultUsername);
+    }
+
+    @Test
+    public void setUsername_test(){
+        assertEquals(user1.getUsername(),defaultUsername);
+        user1.setUsername("Victoria");
+        assertNotEquals(user1.getUsername(), defaultUsername);
+    }
+
+
 }
