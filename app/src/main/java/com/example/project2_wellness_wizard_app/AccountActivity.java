@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.project2_wellness_wizard_app.database.UserInfoRepository;
 import com.example.project2_wellness_wizard_app.database.entities.User;
+import com.example.project2_wellness_wizard_app.database.entities.UserInfo;
 import com.example.project2_wellness_wizard_app.databinding.ActivityAccountBinding;
 import java.util.ArrayList;
 
@@ -116,6 +117,7 @@ public class AccountActivity extends AppCompatActivity {
         String username = binding.usernameDisplayTextView.getText().toString();
 
         ArrayList<String> allUsers = repository.getAllUsers();
+        //ArrayList<UserInfo> allUserInfo = repository.getAllLogs();
 
         if(username.isEmpty()){
             toastMaker("Username should not be blank.");
@@ -124,6 +126,7 @@ public class AccountActivity extends AppCompatActivity {
             for(String user: allUsers){
                 if (user.equals(username)){
                     repository.deleteByUsername(username);
+                    repository.deleteUserInfoByUserId(loggedInUserId);
                     toastMaker("Your account was successfully deleted");
                     toastMaker("Create a new account to login");
                     flag = true;

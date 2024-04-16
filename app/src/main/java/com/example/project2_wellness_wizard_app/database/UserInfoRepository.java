@@ -262,6 +262,13 @@ public class UserInfoRepository {
         });
     }
 
+    public void deleteUserInfoByUserId(int userId){
+        WellnessWizardDatabase.databaseWriteExecutor.execute(()->{
+            userInfoDAO.deleteByUserId(userId);
+        });
+    }
+
+
     public LiveData<User> getUserByUserName(String username) {
         return userDAO.getUserbyUserName(username);
     }

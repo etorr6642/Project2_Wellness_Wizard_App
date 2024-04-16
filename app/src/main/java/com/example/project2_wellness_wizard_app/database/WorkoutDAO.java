@@ -5,14 +5,17 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.project2_wellness_wizard_app.database.entities.Workout;
 
 @Dao
 public interface WorkoutDAO {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     void insert(Workout...workout);
+    @Update
+    void update(Workout...workouts);
 
     @Delete
     void delete(Workout workout);
