@@ -268,6 +268,22 @@ public class UserInfoRepository {
         });
     }
 
+    public Integer getUserIdByUsername(String username){
+
+        Future<Integer> future = WellnessWizardDatabase.databaseWriteExecutor.submit(
+                new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return (Integer) userDAO.getUserIdByUsername(username);
+                    }
+                });
+        try{
+            return future.get();
+        }catch (InterruptedException|ExecutionException e){
+            Log.i(MainActivity.TAG, "Problem when getting all UserInfor in the repository");
+        }
+        return null;
+    }
 
     public LiveData<User> getUserByUserName(String username) {
         return userDAO.getUserbyUserName(username);
@@ -277,8 +293,5 @@ public class UserInfoRepository {
         return userDAO.getUserbyUserId(userId);
     }
 
-    public LiveData<User> getUserIfIsAdmin(){
-        return userDAO.getUserByIsAdmin();
-    }
 
 }

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -50,5 +49,10 @@ public interface UserDAO {
 
     @Query("DELETE FROM "+ WellnessWizardDatabase.USER_TABLE + " WHERE username = :username")
     void deleteByUsername(String username);
+
+    @Query(" SELECT userID FROM " + WellnessWizardDatabase.USER_TABLE + " WHERE username = :username")
+    Integer getUserIdByUsername(String username);
+
+
 
 }
